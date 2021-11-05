@@ -200,76 +200,124 @@
 3290 GOTO 4900
 
 3300 REM DRAW MONSTER X?
-3301 LINE C,B TO C - 15 / DI,B 
-3302 LINE TO C - 15 / DI,B TO C - 8 / DI,B - 8 / DI 
-3303 LINE TO C - 8 / DI,B - 8 / DI TO C - 8 / DI,B - 15 / DI 
-3304 LINE TO C - 8 / DI,B - 15 / DI TO C - 15 / DI,B - 23 / DI 
-3305 LINE TO C - 15 / DI,B - 23 / DI TO C - 15 / DI,B - 15 / DI 
-3306 LINE TO C - 15 / DI,B - 15 / DI TO C - 23 / DI,B - 23 / DI
-
-3310 LINE TO C - 23 / DI,B - 23 / DI TO C - 23 / DI,B - 45 / DI 
-3311 LINE TO C - 23 / DI,B - 45 / DI TO C - 15 / DI,B - 53 / DI 
-3312 LINE TO C - 15 / DI,B - 53 / DI TO C - 8 / DI,B - 53 / DI 
-3313 LINE TO C - 8 / DI,B - 53 / DI TO C - 15 / DI,B - 68 / DI 
-3314 LINE TO C - 15 / DI,B - 68 / DI TO C - 8 / DI,B - 75 / DI 
-3315 LINE TO C - 8 / DI,B - 75 / DI TO C,B - 75 / DI
-
-3320 LINE C,B TO C + 15 / DI,B 
-3321 LINE TO C + 15 / DI,B TO C + 8 / DI,B - 8 / DI 
-3322 LINE TO C + 8 / DI,B - 8 / DI TO C + 8 / DI,B - 15 / DI 
-3323 LINE TO C + 8 / DI,B - 15 / DI TO C + 15 / DI,B - 23 / DI 
-3324 LINE TO C + 15 / DI,B - 23 / DI TO C + 15 / DI,B - 15 / DI 
-3325 LINE TO C + 15 / DI,B - 15 / DI TO C + 23 / DI,B - 23 / DI
-
-3330 LINE C + 23 / DI,B - 23 / DI TO C + 23 / DI,B - 45 / DI 
-3331 LINE TO C + 23 / DI,B - 45 / DI TO C + 15 / DI,B - 53 / DI 
-3332 LINE TO C + 15 / DI,B - 53 / DI TO C + 8 / DI,B - 53 / DI 
-3333 LINE TO C + 8 / DI,B - 53 / DI TO C + 15 / DI,B - 68 / DI 
-3334 LINE TO C + 15 / DI,B - 68 / DI TO C + 8 / DI,B - 75 / DI 
-3335 LINE TO C + 8 / DI,B - 75 / DI TO C,B - 75 / DI
-
-3340 LINE C - 15 / DI,B - 68 / DI TO C + 15 / DI,B - 68 / DI
-3341 LINE C - 8 / DI,B - 53 / DI TO C + 8 / DI,B - 53 / DI
-3342 LINE C - 23 / DI,B - 15 / DI TO C + 8 / DI,B - 45 / DI
-
-3350 LINE C - 8 / DI,B - 68 / DI TO C,B - 60 / DI
-3351 LINE TO C,B - 60 / DI TO C + 8 / DI,B - 68 / DI 
-3352 LINE TO C + 8 / DI,B - 68 / DI TO C + 8 / DI,B - 60 / DI 
-3353 LINE TO C + 8 / DI,B - 60 / DI TO C - 8 / DI,B - 60 / DI 
-3354 LINE TO C - 8 / DI,B - 60 / DI TO C - 8 / DI,B - 68 / DI
-
-3360 LINE C,B - 38 / DI TO C - 8 / DI,B - 38 / DI
-3361 LINE TO C - 8 / DI,B - 38 / DI TO C + 8 / DI,B - 53 / DI 
-3362 LINE TO C + 8 / DI,B - 53 / DI TO C + 8 / DI,B - 45 / DI 
-3363 LINE TO C + 8 / DI,B - 45 / DI TO C + 15 / DI,B - 45 / DI 
-3364 LINE TO C + 15 / DI,B - 45 / DI TO C,B - 30 / DI 
-3365 LINE TO C,B - 30 / DI TO C,B - 38 / DI
-
+3301 LINE C,B , C - 15 / DI,B,HCOLOR
+3302 LINE C - 15 / DI,B , C - 8 / DI,B - 8 / DI,HCOLOR
+3303 LINE C - 8 / DI,B - 8 / DI , C - 8 / DI,B - 15 / DI,HCOLOR 
+3304 LINE C - 8 / DI,B - 15 / DI , C - 15 / DI,B - 23 / DI,HCOLOR 
+3305 LINE C - 15 / DI,B - 23 / DI , C - 15 / DI,B - 15 / DI,HCOLOR
+3306 LINE C - 15 / DI,B - 15 / DI , C - 23 / DI,B - 23 / DI,HCOLOR
+3310 LINE C - 23 / DI,B - 23 / DI , C - 23 / DI,B - 45 / DI,HCOLOR
+3311 LINE C - 23 / DI,B - 45 / DI , C - 15 / DI,B - 53 / DI,HCOLOR
+3312 LINE C - 15 / DI,B - 53 / DI , C - 8 / DI,B - 53 / DI,HCOLOR
+3313 LINE C - 8 / DI,B - 53 / DI , C - 15 / DI,B - 68 / DI,HCOLOR
+3314 LINE C - 15 / DI,B - 68 / DI , C - 8 / DI,B - 75 / DI,HCOLOR
+3315 LINE C - 8 / DI,B - 75 / DI , C,B - 75 / DI,HCOLOR
+3320 LINE C,B , C + 15 / DI,B,HCOLOR
+3321 LINE C + 15 / DI,B , C + 8 / DI,B - 8 / DI,HCOLOR
+3322 LINE C + 8 / DI,B - 8 / DI , C + 8 / DI,B - 15 / DI,HCOLOR 
+3323 LINE C + 8 / DI,B - 15 / DI , C + 15 / DI,B - 23 / DI,HCOLOR
+3324 LINE C + 15 / DI,B - 23 / DI , C + 15 / DI,B - 15 / DI,HCOLOR
+3325 LINE C + 15 / DI,B - 15 / DI , C + 23 / DI,B - 23 / DI,HCOLOR
+3330 LINE C + 23 / DI,B - 23 / DI , C + 23 / DI,B - 45 / DI,HCOLOR
+3331 LINE C + 23 / DI,B - 45 / DI , C + 15 / DI,B - 53 / DI,HCOLOR
+3332 LINE C + 15 / DI,B - 53 / DI , C + 8 / DI,B - 53 / DI,HCOLOR
+3333 LINE C + 8 / DI,B - 53 / DI , C + 15 / DI,B - 68 / DI,HCOLOR
+3334 LINE C + 15 / DI,B - 68 / DI , C + 8 / DI,B - 75 / DI,HCOLOR
+3335 LINE C + 8 / DI,B - 75 / DI , C,B - 75 / DI,HCOLOR
+3340 LINE C - 15 / DI,B - 68 / DI , C + 15 / DI,B - 68 / DI,HCOLOR
+3341 LINE C - 8 / DI,B - 53 / DI , C + 8 / DI,B - 53 / DI,HCOLOR
+3342 LINE C - 23 / DI,B - 15 / DI , C + 8 / DI,B - 45 / DI,HCOLOR
+3350 LINE C - 8 / DI,B - 68 / DI , C,B - 60 / DI,HCOLOR
+3351 LINE C,B - 60 / DI , C + 8 / DI,B - 68 / DI,HCOLOR
+3352 LINE C + 8 / DI,B - 68 / DI , C + 8 / DI,B - 60 / DI,HCOLOR
+3353 LINE C + 8 / DI,B - 60 / DI , C - 8 / DI,B - 60 / DI,HCOLOR
+3354 LINE C - 8 / DI,B - 60 / DI , C - 8 / DI,B - 68 / DI,HCOLOR
+3360 LINE C,B - 38 / DI , C - 8 / DI,B - 38 / DI,HCOLOR
+3361 LINE C - 8 / DI,B - 38 / DI , C + 8 / DI,B - 53 / DI,HCOLOR 
+3362 LINE C + 8 / DI,B - 53 / DI , C + 8 / DI,B - 45 / DI,HCOLOR
+3363 LINE C + 8 / DI,B - 45 / DI , C + 15 / DI,B - 45 / DI,HCOLOR
+3364 LINE C + 15 / DI,B - 45 / DI , C,B - 30 / DI,HCOLOR
+3365 LINE C,B - 30 / DI , C,B - 38 / DI,HCOLOR
 3390 GOTO 4900
 
-3400 HPLOT C - 10 / DI,B - 15 / DI TO C - 10 / DI,B - 30 / DI TO C - 15 / DI,B - 20 / DI TO C - 15 / DI,B - 15 / DI TO C - 15 / DI,B TO C + 15/ DI,B TO C + 15 / DI,B - 15 / DI TO C - 15 / DI,B - 15 / DI
-3410 HPLOT C - 15 / DI,B - 10 / DI TO C + 15 / DI,B - 10 / DI: HPLOT C - 15 / DI,B - 5 / DI TO C + 15 / DI,B - 5 / DI
-3420 HPLOT C,B - 15 / DI TO C - 5 / DI,B - 20 / DI TO C - 5 / DI,B - 35 / DI TO C + 5 / DI,B - 35 / DI TO C + 5 / DI,B - 20 / DI TO C + 10 / DI,B - 15 / DI
-3430 HPLOT C - 5 / DI,B - 20 / DI TO C + 5 / DI,B - 20 / DI: HPLOT C - 5/ DI,B - 25 / DI TO C + 5 / DI,B - 25 / DI: HPLOT C - 5 / DI,B - 30/ DI TO C + 5 / DI,B - 30 / DI
-3440 HPLOT C - 10 / DI,B - 35 / DI TO C - 10 / DI,B - 40 / DI TO C - 5 / DI,B - 45 / DI TO C + 5 / DI,B - 45 / DI TO C + 10 / DI,B - 40 / DI TO C + 10 / DI,B - 35 / DI
-3450 HPLOT C - 10 / DI,B - 40 / DI TO C,B - 45 / DI TO C + 10 / DI,B - 40 / DI
-3460 HPLOT C - 5 / DI,B - 40 / DI TO C + 5 / DI,B - 40 / DI TO C + 15 / DI,B - 30 / DI TO C,B - 40 / DI TO C - 15 / DI,B - 30 / DI TO C - 5 / DI + .5,B - 40 / DI
+3400 REM DRAW MONSTOER
+3401 LINE C - 10 / DI,B - 15 / DI , C - 10 / DI,B - 30 / DI,HCOLOR
+3402 LINE C - 10 / DI,B - 30 / DI , C - 15 / DI,B - 20 / DI,HCOLOR
+3403 LINE C - 15 / DI,B - 20 / DI , C - 15 / DI,B - 15 / DI,HCOLOR
+3404 LINE C - 15 / DI,B - 15 / DI , C - 15 / DI,B,HCOLOR
+3405 LINE C - 15 / DI,B , C + 15/ DI,B,HCOLOR
+3406 LINE C + 15/ DI,B , C + 15 / DI,B - 15 / DI,HCOLOR 
+3407 LINE C + 15 / DI,B - 15 / DI , C - 15 / DI,B - 15 / DI,HCOLOR
+3410 LINE C - 15 / DI,B - 10 / DI , C + 15 / DI,B - 10 / DI,HCOLOR
+3411 LINE C - 15 / DI,B - 5 / DI , C + 15 / DI,B - 5 / DI,HCOLOR
+3420 LINE C,B - 15 / DI , C - 5 / DI,B - 20 / DI,HCOLOR
+3421 LINE C - 5 / DI,B - 20 / DI , C - 5 / DI,B - 35 / DI,HCOLOR
+3422 LINE C - 5 / DI,B - 35 / DI , C + 5 / DI,B - 35 / DI,HCOLOR
+3423 LINE C + 5 / DI,B - 35 / DI , C + 5 / DI,B - 20 / DI,HCOLOR
+3424 LINE C + 5 / DI,B - 20 / DI , C + 10 / DI,B - 15 / DI,HCOLOR
+3430 LINE C - 5 / DI,B - 20 / DI , C + 5 / DI,B - 20 / DI,HCOLOR
+3431 LINE C - 5/ DI,B - 25 / DI , C + 5 / DI,B - 25 / DI,HCOLOR
+3432 LINE C - 5 / DI,B - 30/ DI , C + 5 / DI,B - 30 / DI,HCOLOR
+3440 LINE C - 10 / DI,B - 35 / DI , C - 10 / DI,B - 40 / DI,HCOLOR
+3441 LINE C - 10 / DI,B - 40 / DI , C - 5 / DI,B - 45 / DI,HCOLOR
+3442 LINE C - 5 / DI,B - 45 / DI , C + 5 / DI,B - 45 / DI,HCOLOR
+3443 LINE C + 5 / DI,B - 45 / DI , C + 10 / DI,B - 40 / DI,HCOLOR
+3444 LINE C + 10 / DI,B - 40 / DI , C + 10 / DI,B - 35 / DI,HCOLOR
+3450 LINE C - 10 / DI,B - 40 / DI , C,B - 45 / DI,HCOLOR
+3451 LINE C,B - 45 / DI , C + 10 / DI,B - 40 / DI,HCOLOR
+3460 LINE C - 5 / DI,B - 40 / DI , C + 5 / DI,B - 40 / DI,HCOLOR
+3461 LINE C + 5 / DI,B - 40 / DI , C + 15 / DI,B - 30 / DI,HCOLOR
+3462 LINE C + 15 / DI,B - 30 / DI , C,B - 40 / DI,HCOLOR
+3463 LINE C,B - 40 / DI , C - 15 / DI,B - 30 / DI,HCOLOR
+3464 LINE C - 15 / DI,B - 30 / DI , C - 5 / DI + .5,B - 40 / DI,HCOLOR
 3490 GOTO 4900
-3500 HPLOT C - 20 / DI,79 - YY%(DIS) TO C - 20 / DI,B - 88 / DI TO C - 10 / DI,B - 83 / DI TO C + 10 / DI,B - 83 / DI TO C + 20 / DI,B - 88 / DI TO C + 20 / DI,79 - YY%(DIS) TO C - 20 / DI,79 - YY%(DI)
-3510 HPLOT C - 20 / DI,B - 88 / DI TO C - 30 / DI,B - 83 / DI TO C - 30 / DI,B - 78 / DI: HPLOT C + 20 / DI,B - 88 / DI TO C + 30 / DI,B - 83 / DI TO C + 40 / DI,B - 83 / DI
-3520 HPLOT C - 15 / DI,B - 86 / DI TO C - 20 / DI,B - 83 / DI TO C - 20 / DI,B - 78 / DI TO C - 30 / DI,B - 73 / DI TO C - 30 / DI,B - 68 / DI TO C - 20 / DI,B - 63 / DI
-3530 HPLOT C - 10 / DI,B - 83 / DI TO C - 10 / DI,B - 58 / DI TO C,B - 50 / DI: HPLOT C + 10 / DI,B - 83 / DI TO C + 10 / DI,B - 78 / DI TO C + 20 / DI,B - 73 / DI TO C + 20 / DI,B - 40 / DI
-3540 HPLOT C + 15 / DI,B - 85 / DI TO C + 20 / DI,B - 78 / DI TO C + 30 / DI,B - 76 / DI TO C + 30 / DI,B - 60 / DI
-3550 HPLOT C,B - 83 / DI TO C,B - 73 / DI TO C + 10 / DI,B - 68 / DI TO C + 10 / DI,B - 63 / DI TO C,B - 58 / DI
+
+3500 REM DRAW MONSTER
+3501 LINE C - 20 / DI,79 - YY%(DIS) , C - 20 / DI,B - 88 / DI,HCOLOR
+3502 LINE C - 20 / DI,B - 88 / DI , C - 10 / DI,B - 83 / DI,HCOLOR
+3503 LINE C - 10 / DI,B - 83 / DI , C + 10 / DI,B - 83 / DI,HCOLOR
+3504 LINE C + 10 / DI,B - 83 / DI , C + 20 / DI,B - 88 / DI,HCOLOR
+3505 LINE C + 20 / DI,B - 88 / DI , C + 20 / DI,79 - YY%(DIS),HCOLOR
+3506 LINE C + 20 / DI,79 - YY%(DIS) , C - 20 / DI,79 - YY%(DI),HCOLOR
+3510 LINE C - 20 / DI,B - 88 / DI , C - 30 / DI,B - 83 / DI,HCOLOR
+3511 LINE C - 30 / DI,B - 83 / DI , C - 30 / DI,B - 78 / DI,HCOLOR
+3512 LINE C + 20 / DI,B - 88 / DI , C + 30 / DI,B - 83 / DI,HCOLOR
+3513 LINE C + 30 / DI,B - 83 / DI , C + 40 / DI,B - 83 / DI,HCOLOR
+3520 LINE C - 15 / DI,B - 86 / DI , C - 20 / DI,B - 83 / DI,HCOLOR
+3521 LINE C - 20 / DI,B - 83 / DI , C - 20 / DI,B - 78 / DI,HCOLOR
+3522 LINE C - 20 / DI,B - 78 / DI , C - 30 / DI,B - 73 / DI,HCOLOR
+3523 LINE C - 30 / DI,B - 73 / DI , C - 30 / DI,B - 68 / DI,HCOLOR
+3524 LINE C - 30 / DI,B - 68 / DI , C - 20 / DI,B - 63 / DI,HCOLOR
+3530 LINE C - 10 / DI,B - 83 / DI , C - 10 / DI,B - 58 / DI,HCOLOR
+3531 LINE C - 10 / DI,B - 58 / DI , C,B - 50 / DI,HCOLOR
+3532 LINE C + 10 / DI,B - 83 / DI , C,B - 50 / DI,HCOLOR
+3533 LINE C + 10 / DI,B - 83 / DI , C + 10 / DI,B - 78 / DI,HCOLOR 
+3534 LINE C + 10 / DI,B - 78 / DI , C + 20 / DI,B - 73 / DI,HCOLOR
+3535 LINE C + 20 / DI,B - 73 / DI , C + 20 / DI,B - 40 / DI,HCOLOR
+3540 LINE C + 15 / DI,B - 85 / DI , C + 20 / DI,B - 78 / DI,HCOLOR
+3541 LINE C + 20 / DI,B - 78 / DI , C + 30 / DI,B - 76 / DI,HCOLOR
+3542 LINE C + 30 / DI,B - 76 / DI , C + 30 / DI,B - 60 / DI,HCOLOR
+3550 LINE C,B - 83 / DI , C,B - 73 / DI,HCOLOR
+3551 LINE C,B - 73 / DI , C + 10 / DI,B - 68 / DI,HCOLOR 
+3552 LINE C + 10 / DI,B - 68 / DI , C + 10 / DI,B - 63 / DI,HCOLOR 
+3553 LINE C + 10 / DI,B - 63 / DI , C,B - 58 / DI,HCOLOR
 3590 GOTO 4900
-3600 HPLOT C + 5 / DI + .5,B - 10 / DI TO C - 5 / DI + .5,B - 10 / DI TO C,B - 15 / DI TO C + 10 / DI,B - 20 / DI TO C + 5 / DI + .5,B - 15 / DI TO C + 5 / DI + .5,B - 10 / DI
+
+3600 REM DRAW MONSTER
+3601 LINE C + 5 / DI + .5,B - 10 / DI TO C - 5 / DI + .5,B - 10 / DI 
+3602 LINE TO C - 5 / DI + .5,B - 10 / DI TO C,B - 15 / DI 
+3603 LINE TO C,B - 15 / DI TO C + 10 / DI,B - 20 / DI
+
+ TO C + 5 / DI + .5,B - 15 / DI TO C + 5 / DI + .5,B - 10 / DI
 3610 HPLOT  TO C + 7 / DI + .5,B - 6 / DI TO C + 5 / DI + .5,B - 3 / DI TO C - 5 / DI + .5,B - 3 / DI TO C - 7 / DI + .5,B - 6 / DI TO C - 5 / DI + .5,B - 10 / DI
 3620 HPLOT C + 2 / DI + .5,B - 3 / DI TO C + 5 / DI + .5,B TO C + 8 / DI,B: HPLOT C - 2 / DI + .5,B - 3 / DI TO C - 5 / DI + .5,B TO C - 8 / DI,B: HPLOT C + 3 / DI + .5,B - 8 / DI: HPLOT C - 3 / DI + .5,B - 8 / DI: HPLOT C + 3 / DI + .5,B - 5 / DI TO C - 3 / DI + .5,B - 5 / DI
 3630 GOTO 4900
+
 3700 HPLOT 139 - 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3)
 3710 HPLOT 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 - 5 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 5 / DIS TO 139 + 10 / DIS,PER%(DIS,3)
 3720 HPLOT 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS
 3730 GOTO 4900
+
 3800 HPLOT C - 14 / DI,B - 46 / DI TO C - 12 / DI,B - 37 / DI TO C - 20 / DI,B - 32 / DI TO C - 30 / DI,B - 32 / DI TO C - 22 / DI,B - 24 / DI TO C - 40 / DI,B - 17 / DI TO C - 40 / DI,B - 7 / DI TO C - 38 / DI,B - 5 / DI TO C - 40 / DI,B - 3 / DI TO C - 40 / DI,B
 3810 HPLOT  TO C - 36 / DI,B TO C - 34 / DI,B - 2 / DI TO C - 32 / DI,B TO C - 28 / DI,B TO C - 28 / DI,B - 3 / DI TO C - 30 / DI,B - 5 / DI TO C - 28 / DI,B - 7 / DI TO C - 28 / DI,B - 15 / DI TO C,B - 27 / DI
 3820 HPLOT C + 14 / DI,B - 46 / DI TO C + 12 / DI,B - 37 / DI TO C + 20 / DI,B - 32 / DI TO C + 30 / DI,B - 32 / DI TO C + 22 / DI,B - 24 / DITO C + 40 / DI,B - 17 / DI TO C + 40 / DI,B - 7 / DI TO C + 38 / DI,B - 5 / DI TO C + 40 / DI,B - 3 / DI TO C + 40 / DI,B
@@ -278,6 +326,7 @@
 3850 HPLOT  TO C + 8 / DI,B - 63 / DI TO C + 6 / DI,B - 63 / DI TO C + 2/ DI + .5,B - 70 / DI TO C + 2 / DI + .5,B - 63 / DI TO C - 2 / DI + .5,B - 63 / DI TO C - 2 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 63 / DI TO C - 8 / DI,B - 63 / DI TO C - 16 / DI,B - 59 / DI TO C - 14 / DI,B - 58 / DI
 3860 HPLOT  TO C - 10 / DI,B - 57 / DI TO C - 12 / DI,B - 56 / DI TO C - 18 / DI,B - 56 / DI TO C - 36 / DI,B - 47 / DI TO C - 36 / DI,B - 39/ DI TO C - 28 / DI,B - 41 / DI TO C - 28 / DI,B - 46 / DI TO C - 20 / DI,B - 50 / DI TO C - 18 / DI,B - 50 / DI TO C - 14 / DI,B - 46 / DI
 3870 GOTO 30870
+
 3900 HPLOT C + 6 / DI,B - 60 / DI TO C + 30 / DI,B - 90 / DI TO C + 60 / DI,B - 30 / DI TO C + 60 / DI,B - 10 / DI TO C + 30 / DI,B - 40 / DITO C + 15 / DI,B - 40 / DI
 3910 HPLOT C - 6 / DI,B - 60 / DI TO C - 30 / DI,B - 90 / DI TO C - 60 / DI,B - 30 / DI TO C - 60 / DI,B - 10 / DI TO C - 30 / DI,B - 40 / DITO C - 15 / DI,B - 40 / DI
 3920 HPLOT C,B - 25 / DI TO C + 6 / DI,B - 25 / DI TO C + 10 / DI,B - 20 / DI TO C + 12 / DI,B - 10 / DI TO C + 10 / DI,B - 6 / DI TO C + 10 / DI,B TO C + 14 / DI,B TO C + 15 / DI,B - 5 / DI TO C + 16 / DI,B TO C + 20 / DI,B
@@ -288,7 +337,9 @@
 3970 HPLOT  TO C - 10 / DI,B - 55 / DI TO C - 6 / DI,B - 60 / DI TO C -  10 / DI,B - 74 / DI TO C - 6 / DI,B - 80 / DI TO C - 4 / DI + .5,B - 80 / DI TO C - 3 / DI + .5,B - 82 / DI TO C - 2 / DI + .5,B - 80 / DI TO C,B - 80 / DI
 3980 HPLOT C - 6 / DI,B - 25 / DI TO C,B - 6 / DI TO C + 10 / DI,B TO C +  4 / DI + .5,B - 8 / DI TO C + 6 / DI,B - 25 / DI: HPLOT C - 40 / DI,B - 64 / DI TO C - 40 / DI,B - 90 / DI TO C - 52 / DI,B - 80 / DI TO C - 52 / DI,B - 40 / DI
 3990 HPLOT C + 40 / DI,B - 86 / DI TO C + 38 / DI,B - 92 / DI TO C + 42 /  DI,B - 92 / DI TO C + 40 / DI,B - 86 / DI TO C + 40 / DI,B - 50 / DI     
-4000 HPLOT C + 4 / DI + .5,B - 70 / DI TO C + 6 / DI,B - 74 / DI: HPLOT  C - 4 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 74 / DI: HPLOT C,B - 64 / DI TO C,B - 60 / DI: GOTO 4900
+4000 HPLOT C + 4 / DI + .5,B - 70 / DI TO C + 6 / DI,B - 74 / DI: HPLOT  C - 4 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 74 / DI: HPLOT C,B - 64 / DI TO C,B - 60 / DI
+4001 GOTO 4900
+
 4900 IF EN = 1 THEN EN = 0: RETURN 
 4910 DIS = DIS + 1: GOTO 2020
 5000 ZZ =  RND ( -  ABS (LN) - TX * 10 - TY * 1000 + INOUT * 31.4)
