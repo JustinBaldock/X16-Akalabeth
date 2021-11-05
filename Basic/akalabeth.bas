@@ -50,529 +50,300 @@
 2040 L1 = PER%(DIS,0):R1 = PER%(DIS,1):T1 = PER%(DIS,2):B1 = PER%(DIS,3):L2 = PER%(DIS + 1,0):R2 = PER%(DIS + 1,1):T2 = PER%(DIS + 1,2):B2 = PER%(DIS + 1,3)
 2050 CENT =  INT (CENT):LEFT =  INT (LEFT):RIGHT =  INT (RIGHT)
 2060 MC =  INT (CENT / 10):CENT = CENT - MC * 10:LEFT =  INT ((LEFT / 10 - INT (LEF / 10)) * 10 + .1):RIGH =  INT ((RIGH / 10 -  INT (RIG / 10)) * 10 + .1)
-2080  IF DIS = 0 THEN 2160
-2100  IF CENT = 1 OR CENT = 3 OR CENT = 4 THEN  HPLOT L1,T1 TO R1,T1 TO R1,B1 TO L1,B1 TO L1,T1
-2120  IF CENT = 1 OR CENT = 3 THEN EN = 1: GOTO 2600
-2140  IF CENT = 4 THEN  HPLOT CD%(DIS,0),CD%(DIS,3) TO CD%(DIS,0),CD%(DIS
-     ,2) TO CD%(DIS,1),CD%(DIS,2) TO CD%(DIS,1),CD%(DIS,3):EN = 1: GOTO 2600
-2160  IF LEFT = 1 OR LEFT = 3 OR LEFT = 4 THEN  HPLOT L1,T1 TO L2,T2: HPLOT 
-     L1,B1 TO L2,B2
-218  IF RIGH = 1 OR RIGH = 3 OR RIGH = 4 THEN  HPLOT R1,T1 TO R2,T2: HPLOT 
-     R1,B1 TO R2,B2
-220  IF LEFT = 4 AND DIS > 0 THEN  HPLOT LD%(DIS,0),LD%(DIS,4) TO LD%(DI
-     S,0),LD%(DIS,2) TO LD%(DIS,1),LD%(DIS,3) TO LD%(DIS,1),LD%(DIS,5)
-222  IF LEFT = 4 AND DIS = 0 THEN  HPLOT 0,LD%(DIS,2) - 3 TO LD%(DIS,1),
-     LD%(DIS,3) TO LD%(DIS,1),LD%(DIS,5)
-224  IF RIGH = 4 AND DIS > 0 THEN  HPLOT 279 - LD%(DIS,0),LD%(DIS,4) TO 
-     279 - LD%(DIS,0),LD%(DIS,2) TO 279 - LD%(DIS,1),LD%(DIS,3) TO 279 - 
-     LD%(DIS,1),LD%(DIS,5)
-226  IF RIGH = 4 AND DIS = 0 THEN  HPLOT 279,LD%(DIS,2) - 3 TO 279 - LD%
-     (DIS,1),LD%(DIS,3) TO 279 - LD%(DIS,1),LD%(DIS,5)
-228  IF LEFT = 3 OR LEFT = 1 OR LEFT = 4 THEN 234
-230  IF DIS <  > 0 THEN  HPLOT L1,T1 TO L1,B1
-232  HPLOT L1,T2 TO L2,T2 TO L2,B2 TO L1,B2
-234  IF RIGH = 3 OR RIGH = 1 OR RIGH = 4 THEN 240
-236  IF DIS <  > 0 THEN  HPLOT R1,T1 TO R1,B1
-238  HPLOT R1,T2 TO R2,T2 TO R2,B2 TO R1,B2
-240  IF CENT = 7 OR CENT = 9 THEN  HPLOT FT%(DIS,0),FT%(DIS,4) TO FT%(DI
-     S,2),FT%(DIS,5) TO FT%(DIS,3),FT%(DIS,5) TO FT%(DIS,1),FT%(DIS,4) TO 
-     FT%(DIS,0),FT%(DIS,4)
-242  IF CENT = 8 THEN  HPLOT FT%(DIS,0),158 - FT%(DIS,4) TO FT%(DIS,2),1
-     58 - FT%(DIS,5) TO FT%(DIS,3),158 - FT%(DIS,5) TO FT%(DIS,1),158 - F
-     T%(DIS,4) TO FT%(DIS,0),158 - FT%(DIS,4)
-244  IF CENT = 7 OR CENT = 8 THEN BASE = LAD%(DIS,3):TP = LAD%(DIS,2):LX
-      = LAD%(DIS,0):RX = LAD%(DIS,1): HPLOT LX,BA TO LX,TP: HPLOT RX,TP TO 
-     RX,BA
-246  IF CENT = 7 OR CENT = 8 THEN Y1 = (BA * 4 + TP) / 5:Y2 = (BA * 3 + 
-     TP * 2) / 5:Y3 = (BA * 2 + TP * 3) / 5:Y4 = (BA + TP * 4) / 5: HPLOT 
-     LX,Y1 TO RX,Y1: HPLOT LX,Y2 TO RX,Y2: HPLOT LX,Y3 TO RX,Y3: HPLOT LX
-     ,Y4 TO RX,Y4
-248  IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 - 10 / DIS,PER%(DIS,3) TO 1
-     39 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) - 
-     10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3)
-     
-249  IF CENT = 5 AND DIS > 0 THEN  INVERSE : PRINT "CHEST!": NORMAL 
-250  IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 - 10 / DIS,PER%(DIS,3) - 10
-      / DIS TO 139 - 5 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER
-     %(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 5 / DIS TO 139 + 
-     10 / DIS,PER%(DIS,3)
-252  IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 + 10 / DIS,PER%(DIS,3) - 10
-      / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS
-260  IF MC < 1 THEN 490
-265 B = 79 + YY%(DIS):C = 139
-266  INVERSE : IF MC = 8 THEN  PRINT "CHEST!";: CALL  - 868: PRINT : NORMAL 
-     : GOTO 269
-267  PRINT M$(MC);: CALL  - 868: PRINT : NORMAL 
-269  IF DIS = 0 THEN 490
-270  ON MC GOTO 300,310,320,330,340,350,360,370,380,390
-280  GOTO 490
-300  HPLOT C - 23 / DIS,B TO C - 15 / DIS,B TO C - 15 / DI,B - 15 / DI TO 
-     C - 8 / DI,B - 30 / DI TO C + 8 / DI,B - 30 / DI TO C + 15 / DI,B - 
-     15 / DI TO C + 15 / DI,B TO C + 23 / DI,B
-301  HPLOT C,B - 26 / DI TO C,B - 65 / DI: HPLOT C - 2 / DI + .5,B - 38 / 
-     DI TO C + 2 / DI + .5,B - 38 / DI: HPLOT C - 3 / DI + .5,B - 45 / DI
-      TO C + 3 / DI + .5,B - 45 / DI: HPLOT C - 5 / DI + .5,B - 53 / DI TO 
-     C + 5 / DI + .5,B - 53 / DI
-302  HPLOT C - 23 / DI,B - 56 / DI TO C - 30 / DI,B - 53 / DI TO C - 23 / 
-     DI,B - 45 / DI TO C - 23 / DI,B - 53 / DI TO C - 8 / DI,B - 38 / DI
-303  HPLOT C - 15 / DI,B - 45 / DI TO C - 8 / DI,B - 60 / DI TO C + 8 / 
-     DI,B - 60 / DI TO C + 15 / DI,B - 45 / DI: HPLOT C + 15 / DI,B - 42 / 
-     DI TO C + 15 / DI,B - 57 / DI: HPLOT C + 12 / DI,B - 45 / DI TO C + 
-     20 / DI,B - 45 / DI
-304  HPLOT C,B - 75 / DI TO C - 5 / DI + .5,B - 80 / DI TO C - 8 / DI,B - 
-     75 / DI TO C - 5 / DI + .5,B - 65 / DI TO C + 5 / DI + .5,B - 65 / D
-     I TO C + 5 / DI + .5,B - 68 / DI TO C - 5 / DI + .5,B - 68 / DI TO C
-      - 5 / DI + .5,B - 65 / DI
-305  HPLOT  TO C + 5 / DI + .5,B - 65 / DI TO C + 8 / DI,B - 75 / DI TO 
-     C + 5 / DI + .5,B - 80 / DI TO C - 5 / DI + .5,B - 80 / DI: HPLOT C - 
-     5 / DI + .5,B - 72 / DI: HPLOT C + 5 / DI + .5,B - 72 / DI
-309  GOTO 490
-310  HPLOT C,B - 56 / DI TO C,B - 8 / DI TO C + 10 / DI,B TO C + 30 / DI
-     ,B TO C + 30 / DI,B - 45 / DI TO C + 10 / DI,B - 64 / DI TO C,B - 56
-      / DI
-311  HPLOT  TO C - 10 / DI,B - 64 / DI TO C - 30 / DI,B - 45 / DI TO C - 
-     30 / DI,B TO C - 10 / DI,B TO C,B - 8 / DI
-312  HPLOT C - 10 / DI,B - 64 / DI TO C - 10 / DI,B - 75 / DI TO C,B - 8
-     3 / DI TO C + 10 / DI,B - 75 / DI TO C,B - 79 / DI TO C - 10 / DI,B - 
-     75 / DI TO C,B - 60 / DI TO C + 10 / DI,B - 75 / DI TO C + 10 / DI,B
-      - 64 / DI
-319  GOTO 490
-320  HPLOT C + 5 / DI,B - 30 / DI TO C,B - 25 / DI TO C - 5 / DI,B - 30 / 
-     DI TO C - 15 / DI,B - 5 / DI TO C - 10 / DI,B TO C + 10 / DI,B TO C + 
-     15 / DI,B - 5 / DI
-321  HPLOT  TO C + 20 / DI,B - 5 / DI TO C + 10 / DI,B TO C + 15 / DI,B - 
-     5 / DI TO C + 5 / DI,B - 30 / DI TO C + 10 / DI,B - 40 / DI TO C + 3
-      / DI + .5,B - 35 / DI TO C - 3 / DI + .5,B - 35 / DI TO C - 10 / DI
-     ,B - 40 / DI TO C - 5 / DI,B - 30 / DI
-322  HPLOT C - 5 / DI,B - 33 / DI TO C - 3 / DI + .5,B - 30 / DI: HPLOT 
-     C + 5 / DI,B - 33 / DI TO C + 3 / DI + .5,B - 30 / DI: HPLOT C - 5 / 
-     DI,B - 20 / DI TO C - 5 / DI,B - 15 / DI
-323  HPLOT C + 5 / DI,B - 20 / DI TO C + 5 / DI,B - 15 / DI: HPLOT C - 7
-      / DI,B - 20 / DI TO C - 7 / DI,B - 15 / DI: HPLOT C + 7 / DI,B - 20
-      / DI TO C + 7 / DI,B - 15 / DI
-329  GOTO 490
-330  HPLOT C,B TO C - 15 / DI,B TO C - 8 / DI,B - 8 / DI TO C - 8 / DI,B
-      - 15 / DI TO C - 15 / DI,B - 23 / DI TO C - 15 / DI,B - 15 / DI TO 
-     C - 23 / DI,B - 23 / DI
-331  HPLOT  TO C - 23 / DI,B - 45 / DI TO C - 15 / DI,B - 53 / DI TO C - 
-     8 / DI,B - 53 / DI TO C - 15 / DI,B - 68 / DI TO C - 8 / DI,B - 75 / 
-     DI TO C,B - 75 / DI
-332  HPLOT C,B TO C + 15 / DI,B TO C + 8 / DI,B - 8 / DI TO C + 8 / DI,B
-      - 15 / DI TO C + 15 / DI,B - 23 / DI TO C + 15 / DI,B - 15 / DI TO 
-     C + 23 / DI,B - 23 / DI
-333  HPLOT  TO C + 23 / DI,B - 45 / DI TO C + 15 / DI,B - 53 / DI TO C + 
-     8 / DI,B - 53 / DI TO C + 15 / DI,B - 68 / DI TO C + 8 / DI,B - 75 / 
-     DI TO C,B - 75 / DI
-334  HPLOT C - 15 / DI,B - 68 / DI TO C + 15 / DI,B - 68 / DI: HPLOT C - 
-     8 / DI,B - 53 / DI TO C + 8 / DI,B - 53 / DI: HPLOT C - 23 / DI,B - 
-     15 / DI TO C + 8 / DI,B - 45 / DI
-335  HPLOT C - 8 / DI,B - 68 / DI TO C,B - 60 / DI TO C + 8 / DI,B - 68 / 
-     DI TO C + 8 / DI,B - 60 / DI TO C - 8 / DI,B - 60 / DI TO C - 8 / DI
-     ,B - 68 / DI
-336  HPLOT C,B - 38 / DI TO C - 8 / DI,B - 38 / DI TO C + 8 / DI,B - 53 / 
-     DI TO C + 8 / DI,B - 45 / DI TO C + 15 / DI,B - 45 / DI TO C,B - 30 / 
-     DI TO C,B - 38 / DI
-339  GOTO 490
-340  HPLOT C - 10 / DI,B - 15 / DI TO C - 10 / DI,B - 30 / DI TO C - 15 / 
-     DI,B - 20 / DI TO C - 15 / DI,B - 15 / DI TO C - 15 / DI,B TO C + 15
-      / DI,B TO C + 15 / DI,B - 15 / DI TO C - 15 / DI,B - 15 / DI
-341  HPLOT C - 15 / DI,B - 10 / DI TO C + 15 / DI,B - 10 / DI: HPLOT C - 
-     15 / DI,B - 5 / DI TO C + 15 / DI,B - 5 / DI
-342  HPLOT C,B - 15 / DI TO C - 5 / DI,B - 20 / DI TO C - 5 / DI,B - 35 / 
-     DI TO C + 5 / DI,B - 35 / DI TO C + 5 / DI,B - 20 / DI TO C + 10 / D
-     I,B - 15 / DI
-343  HPLOT C - 5 / DI,B - 20 / DI TO C + 5 / DI,B - 20 / DI: HPLOT C - 5
-      / DI,B - 25 / DI TO C + 5 / DI,B - 25 / DI: HPLOT C - 5 / DI,B - 30
-      / DI TO C + 5 / DI,B - 30 / DI
-344  HPLOT C - 10 / DI,B - 35 / DI TO C - 10 / DI,B - 40 / DI TO C - 5 / 
-     DI,B - 45 / DI TO C + 5 / DI,B - 45 / DI TO C + 10 / DI,B - 40 / DI TO 
-     C + 10 / DI,B - 35 / DI
-345  HPLOT C - 10 / DI,B - 40 / DI TO C,B - 45 / DI TO C + 10 / DI,B - 4
-     0 / DI
-346  HPLOT C - 5 / DI,B - 40 / DI TO C + 5 / DI,B - 40 / DI TO C + 15 / 
-     DI,B - 30 / DI TO C,B - 40 / DI TO C - 15 / DI,B - 30 / DI TO C - 5 / 
-     DI + .5,B - 40 / DI
-349  GOTO 490
-350  HPLOT C - 20 / DI,79 - YY%(DIS) TO C - 20 / DI,B - 88 / DI TO C - 1
-     0 / DI,B - 83 / DI TO C + 10 / DI,B - 83 / DI TO C + 20 / DI,B - 88 / 
-     DI TO C + 20 / DI,79 - YY%(DIS) TO C - 20 / DI,79 - YY%(DI)
-351  HPLOT C - 20 / DI,B - 88 / DI TO C - 30 / DI,B - 83 / DI TO C - 30 / 
-     DI,B - 78 / DI: HPLOT C + 20 / DI,B - 88 / DI TO C + 30 / DI,B - 83 / 
-     DI TO C + 40 / DI,B - 83 / DI
-352  HPLOT C - 15 / DI,B - 86 / DI TO C - 20 / DI,B - 83 / DI TO C - 20 / 
-     DI,B - 78 / DI TO C - 30 / DI,B - 73 / DI TO C - 30 / DI,B - 68 / DI
-      TO C - 20 / DI,B - 63 / DI
-353  HPLOT C - 10 / DI,B - 83 / DI TO C - 10 / DI,B - 58 / DI TO C,B - 5
-     0 / DI: HPLOT C + 10 / DI,B - 83 / DI TO C + 10 / DI,B - 78 / DI TO 
-     C + 20 / DI,B - 73 / DI TO C + 20 / DI,B - 40 / DI
-354  HPLOT C + 15 / DI,B - 85 / DI TO C + 20 / DI,B - 78 / DI TO C + 30 / 
-     DI,B - 76 / DI TO C + 30 / DI,B - 60 / DI
-355  HPLOT C,B - 83 / DI TO C,B - 73 / DI TO C + 10 / DI,B - 68 / DI TO 
-     C + 10 / DI,B - 63 / DI TO C,B - 58 / DI
-359  GOTO 490
-360  HPLOT C + 5 / DI + .5,B - 10 / DI TO C - 5 / DI + .5,B - 10 / DI TO 
-     C,B - 15 / DI TO C + 10 / DI,B - 20 / DI TO C + 5 / DI + .5,B - 15 / 
-     DI TO C + 5 / DI + .5,B - 10 / DI
-361  HPLOT  TO C + 7 / DI + .5,B - 6 / DI TO C + 5 / DI + .5,B - 3 / DI TO 
-     C - 5 / DI + .5,B - 3 / DI TO C - 7 / DI + .5,B - 6 / DI TO C - 5 / 
-     DI + .5,B - 10 / DI
-362  HPLOT C + 2 / DI + .5,B - 3 / DI TO C + 5 / DI + .5,B TO C + 8 / DI
-     ,B: HPLOT C - 2 / DI + .5,B - 3 / DI TO C - 5 / DI + .5,B TO C - 8 / 
-     DI,B: HPLOT C + 3 / DI + .5,B - 8 / DI: HPLOT C - 3 / DI + .5,B - 8 / 
-     DI: HPLOT C + 3 / DI + .5,B - 5 / DI TO C - 3 / DI + .5,B - 5 / DI
-363  GOTO 490
-370  HPLOT 139 - 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3) - 10
-      / DIS TO 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PE
-     R%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3)
-371  HPLOT 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 - 5 / DIS,PER%(D
-     IS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 1
-     5 / DIS,PER%(DIS,3) - 5 / DIS TO 139 + 10 / DIS,PER%(DIS,3)
-372  HPLOT 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 15 / DIS,PER%(
-     DIS,3) - 15 / DIS
-373  GOTO 490
-380  HPLOT C - 14 / DI,B - 46 / DI TO C - 12 / DI,B - 37 / DI TO C - 20 / 
-     DI,B - 32 / DI TO C - 30 / DI,B - 32 / DI TO C - 22 / DI,B - 24 / DI
-      TO C - 40 / DI,B - 17 / DI TO C - 40 / DI,B - 7 / DI TO C - 38 / DI
-     ,B - 5 / DI TO C - 40 / DI,B - 3 / DI TO C - 40 / DI,B
-381  HPLOT  TO C - 36 / DI,B TO C - 34 / DI,B - 2 / DI TO C - 32 / DI,B TO 
-     C - 28 / DI,B TO C - 28 / DI,B - 3 / DI TO C - 30 / DI,B - 5 / DI TO 
-     C - 28 / DI,B - 7 / DI TO C - 28 / DI,B - 15 / DI TO C,B - 27 / DI
-382  HPLOT C + 14 / DI,B - 46 / DI TO C + 12 / DI,B - 37 / DI TO C + 20 / 
-     DI,B - 32 / DI TO C + 30 / DI,B - 32 / DI TO C + 22 / DI,B - 24 / DI
-      TO C + 40 / DI,B - 17 / DI TO C + 40 / DI,B - 7 / DI TO C + 38 / DI
-     ,B - 5 / DI TO C + 40 / DI,B - 3 / DI TO C + 40 / DI,B
-383  HPLOT  TO C + 36 / DI,B TO C + 34 / DI,B - 2 / DI TO C + 32 / DI,B TO 
-     C + 28 / DI,B TO C + 28 / DI,B - 3 / DI TO C + 30 / DI,B - 5 / DI TO 
-     C + 28 / DI,B - 7 / DI TO C + 28 / DI,B - 15 / DI TO C,B - 27 / DI
-384  HPLOT C + 6 / DI,B - 48 / DI TO C + 38 / DI,B - 41 / DI TO C + 40 / 
-     DI,B - 42 / DI TO C + 18 / DI,B - 56 / DI TO C + 12 / DI,B - 56 / DI
-      TO C + 10 / DI,B - 57 / DI TO C + 8 / DI,B - 56 / DI TO C - 8 / DI,
-     B - 56 / DI TO C - 10 / DI,B - 58 / DI TO C + 14 / DI,B - 58 / DI TO 
-     C + 16 / DI,B - 59 / DI
-385  HPLOT  TO C + 8 / DI,B - 63 / DI TO C + 6 / DI,B - 63 / DI TO C + 2
-      / DI + .5,B - 70 / DI TO C + 2 / DI + .5,B - 63 / DI TO C - 2 / DI + 
-     .5,B - 63 / DI TO C - 2 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 63 / 
-     DI TO C - 8 / DI,B - 63 / DI TO C - 16 / DI,B - 59 / DI TO C - 14 / 
-     DI,B - 58 / DI
-386  HPLOT  TO C - 10 / DI,B - 57 / DI TO C - 12 / DI,B - 56 / DI TO C - 
-     18 / DI,B - 56 / DI TO C - 36 / DI,B - 47 / DI TO C - 36 / DI,B - 39
-      / DI TO C - 28 / DI,B - 41 / DI TO C - 28 / DI,B - 46 / DI TO C - 2
-     0 / DI,B - 50 / DI TO C - 18 / DI,B - 50 / DI TO C - 14 / DI,B - 46 / 
-     DI
-387  GOTO 3087
-390  HPLOT C + 6 / DI,B - 60 / DI TO C + 30 / DI,B - 90 / DI TO C + 60 / 
-     DI,B - 30 / DI TO C + 60 / DI,B - 10 / DI TO C + 30 / DI,B - 40 / DI
-      TO C + 15 / DI,B - 40 / DI
-391  HPLOT C - 6 / DI,B - 60 / DI TO C - 30 / DI,B - 90 / DI TO C - 60 / 
-     DI,B - 30 / DI TO C - 60 / DI,B - 10 / DI TO C - 30 / DI,B - 40 / DI
-      TO C - 15 / DI,B - 40 / DI
-392  HPLOT C,B - 25 / DI TO C + 6 / DI,B - 25 / DI TO C + 10 / DI,B - 20
-      / DI TO C + 12 / DI,B - 10 / DI TO C + 10 / DI,B - 6 / DI TO C + 10
-      / DI,B TO C + 14 / DI,B TO C + 15 / DI,B - 5 / DI TO C + 16 / DI,B TO 
-     C + 20 / DI,B
-393  HPLOT  TO C + 20 / DI,B - 6 / DI TO C + 18 / DI,B - 10 / DI TO C + 
-     18 / DI,B - 20 / DI TO C + 15 / DI,B - 30 / DI TO C + 15 / DI,B - 45
-      / DI TO C + 40 / DI,B - 60 / DI TO C + 40 / DI,B - 70 / DI
-394  HPLOT  TO C + 10 / DI,B - 55 / DI TO C + 6 / DI,B - 60 / DI TO C + 
-     10 / DI,B - 74 / DI TO C + 6 / DI,B - 80 / DI TO C + 4 / DI + .5,B - 
-     80 / DI TO C + 3 / DI + .5,B - 82 / DI TO C + 2 / DI + .5,B - 80 / D
-     I TO C,B - 80 / DI
-395  HPLOT C,B - 25 / DI TO C - 6 / DI,B - 25 / DI TO C - 10 / DI,B - 20
-      / DI TO C - 12 / DI,B - 10 / DI TO C - 10 / DI,B - 6 / DI TO C - 10
-      / DI,B TO C - 14 / DI,B TO C - 15 / DI,B - 5 / DI TO C - 16 / DI,B TO 
-     C - 20 / DI,B
-396  HPLOT  TO C - 20 / DI,B - 6 / DI TO C - 18 / DI,B - 10 / DI TO C - 
-     18 / DI,B - 20 / DI TO C - 15 / DI,B - 30 / DI TO C - 15 / DI,B - 45
-      / DI TO C - 40 / DI,B - 60 / DI TO C - 40 / DI,B - 70 / DI
-397  HPLOT  TO C - 10 / DI,B - 55 / DI TO C - 6 / DI,B - 60 / DI TO C - 
-     10 / DI,B - 74 / DI TO C - 6 / DI,B - 80 / DI TO C - 4 / DI + .5,B - 
-     80 / DI TO C - 3 / DI + .5,B - 82 / DI TO C - 2 / DI + .5,B - 80 / D
-     I TO C,B - 80 / DI
-398  HPLOT C - 6 / DI,B - 25 / DI TO C,B - 6 / DI TO C + 10 / DI,B TO C + 
-     4 / DI + .5,B - 8 / DI TO C + 6 / DI,B - 25 / DI: HPLOT C - 40 / DI,
-     B - 64 / DI TO C - 40 / DI,B - 90 / DI TO C - 52 / DI,B - 80 / DI TO 
-     C - 52 / DI,B - 40 / DI
-399  HPLOT C + 40 / DI,B - 86 / DI TO C + 38 / DI,B - 92 / DI TO C + 42 / 
-     DI,B - 92 / DI TO C + 40 / DI,B - 86 / DI TO C + 40 / DI,B - 50 / DI
-     
-400  HPLOT C + 4 / DI + .5,B - 70 / DI TO C + 6 / DI,B - 74 / DI: HPLOT 
-     C - 4 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 74 / DI: HPLOT C,B - 6
-     4 / DI TO C,B - 60 / DI: GOTO 490
-490  IF EN = 1 THEN EN = 0: RETURN 
-491 DIS = DIS + 1: GOTO 202
-500 ZZ =  RND ( -  ABS (LN) - TX * 10 - TY * 1000 + INOUT * 31.4)
-501  FOR X = 1 TO 9: FOR Y = 1 TO 9:DNG%(X,Y) = 0: NEXT : NEXT 
-510  FOR X = 0 TO 10:DNG%(X,0) = 1:DNG%(X,10) = 1:DNG%(0,X) = 1:DNG%(10,
-     X) = 1: NEXT 
-520  FOR X = 2 TO 8 STEP 2: FOR Y = 1 TO 9:DNG%(X,Y) = 1:DNG(Y,X) = 1: NEXT 
-     : NEXT 
-530  FOR X = 2 TO 8 STEP 2: FOR Y = 1 TO 9 STEP 2
-540  IF  RND (1) > .95 THEN DNG%(X,Y) = 2
-541  IF  RND (1) > .95 THEN DNG%(Y,X) = 2
-542  IF  RND (1) > .6 THEN DNG%(Y,X) = 3
-543  IF  RND (1) > .6 THEN DNG%(X,Y) = 3
-544  IF  RND (1) > .6 THEN DNG%(X,Y) = 4
-545  IF  RND (1) > .6 THEN DNG%(Y,X) = 4
-546  IF  RND (1) > .97 THEN DNG%(Y,X) = 9
-547  IF  RND (1) > .97 THEN DNG%(X,Y) = 9
-548  IF  RND (1) > .94 THEN DNG%(X,Y) = 5
-549  IF  RND (1) > .94 THEN DNG%(Y,X) = 5
-568  NEXT : NEXT 
-569 DNG%(2,1) = 0: IF INOUT / 2 =  INT (INOUT / 2) THEN DNG%(7,3) = 7:DN
-     G%(3,7) = 8
-570  IF INOUT / 2 <  >  INT (INOUT / 2) THEN DNG%(7,3) = 8:DNG%(3,7) = 7
-     
-580  IF INOUT = 1 THEN DNG%(1,1) = 8:DNG%(7,3) = 0
-585  GOSUB 2000
-590  RETURN 
-1000  VTAB (24): PRINT "COMMAND? ";: CALL  - 868
-1001 X =  PEEK ( - 16384): IF X < 128 THEN 1001
-1002 Q =  FRE (0)
-1010  POKE  - 16368,0
-1030  IF X = 141 THEN  ON  SGN (INOUT) + 1 GOTO 1100,1150
-1040  IF X = 149 THEN  ON  SGN (INOUT) + 1 GOTO 1200,1250
-1050  IF X = 136 THEN  ON  SGN (INOUT) + 1 GOTO 1300,1350
-1060  IF X = 175 THEN  ON  SGN (INOUT) + 1 GOTO 1400,1450
-1070  IF X = 216 THEN  ON  SGN (INOUT) + 1 GOTO 1500,1550
-1080  IF X = 193 OR X = 155 THEN  ON  SGN (INOUT) + 1 GOTO 1600,1650
-1081  IF X = 160 THEN  PRINT "PASS": GOTO 1090
-1085  IF X = 211 THEN 1700
-1086  IF X = 208 THEN  IF PA = 1 THEN PA = 0: PRINT "PAUSE OFF": GOTO 10
-     00
-1087  IF X = 208 THEN  IF PA = 0 THEN PA = 1: PRINT "PAUSE ON": GOTO 100
-     0
-1089  PRINT "HUH?": GOTO 1000
-1090 PW(0) = PW(0) - 1 +  SGN (INOUT) * .9: IF PW(0) < 0 THEN C(0) = 0: PRINT 
-     : PRINT "YOU HAVE STARVED!!!!!": GOTO 1093
-1091  POKE 33,40: VTAB (22): HTAB (30): PRINT "FOOD=";PW(0);: CALL  - 86
-     8: VTAB (23): HTAB (30): PRINT "H.P.=";C(0);: CALL  - 868: VTAB (24)
-     : HTAB (30): PRINT "GOLD=";C(5);: CALL  - 868: POKE 33,29: HTAB (1)
-1092 PW(0) =  INT (PW(0) * 10) / 10
-1093  IF C(0) <  = 0 THEN 6000
-1095  IF IN > 0 THEN  GOSUB 4000: IF C(0) <  = 0 THEN 1093
-1096  POKE 33,40: VTAB (22): HTAB (30): PRINT "FOOD=";PW(0);: CALL  - 86
-     8: VTAB (23): HTAB (30): PRINT "H.P.=";C(0);: CALL  - 868: VTAB (24)
-     : HTAB (30): PRINT "GOLD=";C(5);: CALL  - 868: POKE 33,29: HTAB (1)
-1097  IF INOUT = 0 THEN  GOSUB 100: GOTO 1000
-1098  IF INOUT > 0 THEN  GOSUB 200: GOTO 1000
-1100  PRINT "NORTH": IF TER%(TX,TY - 1) = 1 THEN  PRINT "YOU CAN'T PASS 
-     THE MOUNTAINS": GOTO 1090
-1110 TY = TY - 1: GOTO 1090
-1150  IF DNG%(PX + DX,PY + DY) <  > 1 AND DNG%(PX + DX,PY + DY) < 10 THEN 
-     PX = PX + DX:PY = PY + DY
-1155  PRINT "FORWARD"
-1160  IF DNG%(PX,PY) = 2 THEN  PRINT "AAARRRGGGHHH!!! A TRAP!":C(0)= C(
-     0) -  INT ( RND (1) * INOUT + 3):MR = 1:INOUT = INOUT + 1: PRINT "FA
-     LLING TO LEVEL ";IN: GOSUB 500: GOTO 1090
-1165 Z = 0
-1170  IF DNG%(PX,PY) = 5 THEN DNG%(PX,PY) = 0: PRINT "GOLD!!!!!":Z =  INT 
-     ( RND (1) * 5 * INOUT + INOUT): PRINT Z;"-PIECES OF EIGHT":C(5) = C(
-     5) + Z
-1175  IF Z > 0 THEN Z =  INT ( RND (1) * 6): PRINT "AND A ";W$(Z):PW(Z) = 
-     PW(Z) + 1: GOTO 1090
-1190  GOTO 1090
-1200  PRINT "EAST": IF TER%(TX + 1,TY) = 1 THEN  PRINT "YOU CAN'T PASS T
-     HE MOUNTAINS": GOTO 1090
-1210 TX = TX + 1: GOTO 1090
-1250  PRINT "TURN RIGHT"
-1255  IF DX <  > 0 THEN DY = DX:DX = 0: GOTO 1090
-1260 DX =  - DY:DY = 0: GOTO 1090
-1300  PRINT "WEST": IF TER%(TX - 1,TY) = 1 THEN  PRINT "YOU CAN'T PASS T
-     HE MOUNTAINS": GOTO 1090
-1310 TX = TX - 1: GOTO 1090
-1350  PRINT "TURN LEFT"
-1355  IF DX <  > 0 THEN DY =  - DX:DX = 0: GOTO 1090
-1360 DX = DY:DY = 0: GOTO 1090
-1400  PRINT "SOUTH": IF TER%(TX,TY + 1) = 1 THEN  PRINT "YOU CAN'T PASS 
-     THE MOUNTAINS": GOTO 1090
-1410 TY = TY + 1: GOTO 1090
-1450  PRINT "TURN AROUND":DX =  - DX:DY =  - DY: GOTO 1090
-1500  IF TE%(TX,TY) = 3 THEN  GOSUB 60080: GOSUB 60200: GOTO 1090
-1510  IF TE%(TX,TY) = 4 AND INOUT = 0 THEN  PRINT "GO DUNGEON": PRINT "P
-     LEASE WAIT ":INOUT = 1: GOSUB 500:DX = 1:DY = 0:PX = 1:PY = 1: GOTO 
-     1090
-1515  IF TE%(TX,TY) = 5 THEN 7000
-1520  PRINT "HUH?": GOTO 1000
-1550  IF DNG%(PX,PY) <  > 7 AND DNG%(PX,PY) <  > 9 THEN 1580
-1555  PRINT "GO DOWN TO LEVEL ";INOUT + 1
-1560 INOUT = INOUT + 1: GOSUB 500:MR = 1: GOTO 1090
-1580  IF DNG%(PX,PY) <  > 8 THEN  PRINT "HUH?": GOTO 1090
-1581  IF IN = 1 THEN  PRINT "LEAVE DUNGEON":IN = 0: GOTO 1586
-1584  PRINT "GO UP TO LEVEL ";INOUT - 1
-1585 INOUT = INOUT - 1: GOSUB 500:MR = 1
-1586  IF IN = 0 THEN  PRINT "THOU HAST GAINED": PRINT LK;" HIT POINTS":C
-     (0) = C(0) + LK:LK = 0
-1587  GOTO 1090
-1600  GOTO 1090
-1650 MN = 0:DAM = 0: PRINT "ATTACK": PRINT "WHICH WEAPON ";: GET Q$
-1651  IF Q$ = "R" THEN DAM = 10: PRINT "RAPIER": IF PW(1) < 1 THEN  PRINT 
-     "NOT OWNED": GOTO 1650
-1652  IF Q$ = "A" THEN DAM = 5: PRINT "AXE": IF PW(2) < 1 THEN  PRINT "N
-     OT OWNED": GOTO 1650
-1653  IF Q$ = "S" THEN DAM = 1: PRINT "SHIELD": IF PW(3) < 1 THEN  PRINT 
-     "NOT OWNED": GOTO 1650
-1654  IF Q$ = "B" THEN DAM = 4: PRINT "BOW": IF PW(4) < 1 THEN  PRINT "N
-     OT OWNED": GOTO 1650
-1655  IF Q$ = "M" THEN  PRINT "MAGIC AMULET": GOTO 1680
-1656  IF Q$ = "B" AND PT$ = "M" THEN  PRINT "MAGES CAN'T USE BOWS!": GOTO 
-     1650
-1657  IF Q$ = "R" AND PT$ = "M" THEN  PRINT "MAGES CAN'T USE RAPIERS!": GOTO 
-     1650
-1659  IF DAM = 0 THEN  PRINT "HANDS"
-1660  IF DAM = 5 OR DAM = 4 THEN 1670
-1661 MN = DN%(PX + DX,PY + DY) / 10:MN =  INT (MN)
-1662  IF MN < 1 OR C(2) -  RND (1) * 25 < MN + INOUT THEN  PRINT "YOU MI
-     SSED": GOTO 1668
-1663  PRINT "HIT!!! ":DAM  ( RND (1) * DAM + C(1) / 5):MZ%(MN,1) = MZ%(
-     MN,1) - DAM
-1664  PRINT M$(MN);"'S HIT POINTS=";MZ%(MN,1)
-1665  IF MZ%(MN,1) < 1 THEN  PRINT "THOU HAST KILLED A ";M$(MN): PRINT "
-     THOU SHALT RECEIVE":DA =  INT (MN + IN): PRINT DA;" PIECES OF EIGHT"
-     
-1666  IF MZ%(MN,1) < 1 THEN C(5) =  INT (C(5) + DA):DNG%(ML%(MN,0),ML%(M
-     N,1)) = DNG%(ML%(MN,0),ML%(MN,1)) - 10 * MN:MZ%(MN,0) = 0
-1667 LK = LK +  INT (MN * IN / 2): IF MN = TASK THEN TASK =  - TASK
-1668  IF PA = 1 THEN  PRINT "-CR- TO CONT. ";: INPUT Q$
-1669  GOTO 1090
-1670  IF DAM = 5 THEN  PRINT "TO THROW OR SWING:";: GET Q$: IF Q$ <  > "
-     T" THEN  PRINT "SWING": GOTO 1661
-1671  IF DAM = 5 THEN  PRINT "THROW":PW(2) = PW(2) - 1
-1672  FOR Y = 1 TO 5: IF PX + DX * Y < 1 OR PX + DX * Y > 9 OR PY + DY * 
-     Y > 9 OR PY + DY * Y < 0 THEN 1662
-1673 MN = DNG%(PX + DX * Y,PY + DY * Y):MN =  INT (MN / 10): IF MN > 0 THEN 
-     1662
-1674  NEXT : GOTO 1662
-1680  IF PW(5) < 1 THEN  PRINT "NONE OWNED": GOTO 1650
-1681  IF PT$ = "F" THEN Q =  INT ( RND (1) * 4 + 1): GOTO 1685
-1682  PRINT "1-LADDER-UP","2-LADDER-DN": PRINT "3-KILL","4-BAD??": PRINT 
-     "CHOICE ";: GET Q$:Q =  VAL (Q$): PRINT Q: IF Q < 1 OR Q > 4 THEN 16
-     82
-1683  IF  RND (1) > .75 THEN  PRINT "LAST CHARGE ON THIS AMULET!":PW(5) = 
-     PW(5) - 1
-1685  ON Q GOTO 1686,1690,1691,1692
-1686  PRINT "LADDER UP":DNG%(PX,PY) = 8: GOTO 1090
-1690  PRINT "LADDER DOWN":DNG%(PX,PY) = 7: GOTO 1090
-1691  PRINT "MAGIC ATTACK":DAM = 10 + INOUT: GOTO 1672
-1692  ON  INT ( RND (1) * 3 + 1) GOTO 1693,1695,1697
-1693  PRINT "YOU HAVE BEEN TURNED": PRINT "INTO A TOAD!"
-1694  FOR Z2 = 1 TO 4:C(Z2) = 3: NEXT Z2: GOTO 1090
-1695  PRINT "YOU HAVE BEEN TURNED": PRINT "INTO A LIZARD MAN": FOR Y = 0
-      TO 4:C(Y) =  INT (C(Y) * 2.5): NEXT : GOTO 1090
-1697  PRINT "BACKFIRE":C(0) = C(0) / 2: GOTO 1090
-1700  GOSUB 60080: HOME : PRINT "PRESS -CR- TO CONTINUE";: INPUT Q$: TEXT 
-     : HOME : GOTO 1090
-2000 NM = 0: FOR X = 1 TO 10
-2005 MZ%(X,0) = 0:MZ%(X,1) = X + 3 + INOUT
-2010  IF X - 2 > INO OR  RND (1) > .4 THEN 2090
-2020 ML%(X,0) =  INT ( RND (1) * 9 + 1):ML%(X,1) =  INT ( RND (1) * 9 + 
-     1)
-2030  IF DNG%(ML%(X,0),ML%(X,1)) <  > 0 THEN 2020
-2040  IF ML%(X,0) = PX AND ML%(X,1) = PY THEN 2020
-2050 DNG%(ML%(X,0),ML%(X,1)) = X * 10
-2051 MZ%(X,0) = 1
-2052 NM = NM + 1
-2055 MZ%(X,1) = X * 2 + IN * 2 * LP
-2090  NEXT : RETURN 
-3087  HPLOT C - 28 / DI,B - 41 / DI TO C + 30 / DI,B - 55 / DI: HPLOT C + 
-     28 / DI,B - 58 / DI TO C + 22 / DI,B - 56 / DI TO C + 22 / DI,B - 53
-      / DI TO C + 28 / DI,B - 52 / DI TO C + 34 / DI,B - 54 / DI: HPLOT C
-      + 20 / DI,B - 50 / DI TO C + 26 / DI,B - 47 / DI
-3088  HPLOT C + 10 / DI,B - 58 / DI TO C + 10 / DI,B - 61 / DI TO C + 4 / 
-     DI,B - 58 / DI: HPLOT C - 10 / DI,B - 58 / DI TO C - 10 / DI,B - 61 / 
-     DI TO C - 4 / DI,B - 58 / DI: HPLOT C + 40 / DI,B - 9 / DI TO C + 50
-      / DI,B - 12 / DI TO C + 40 / DI,B - 7 / DI
-3089  HPLOT C - 8 / DI,B - 25 / DI TO C + 6 / DI,B - 7 / DI TO C + 28 / 
-     DI,B - 7 / DI TO C + 28 / DI,B - 9 / DI TO C + 20 / DI,B - 9 / DI TO 
-     C + 6 / DI,B - 25 / DI: GOTO 490
-4000  FOR MM = 1 TO 10: IF MZ%(MM,0) = 0 THEN 4999
-4010 RA =  SQR ((PX - ML%(MM,0)) ^ 2 + (PY - ML%(MM,1)) ^ 2)
-4011  IF MZ%(MM,1) < IN * LP THEN 4030
-4020  IF RA < 1.3 THEN 4500
-4025  IF MM = 8 AND RA < 3 THEN 4999
-4030 X1 =  SGN (PX - ML%(MM,0)):Y1 =  SGN (PY - ML%(MM,1))
-4031  IF MZ%(MM,1) < IN * LP THEN X1 =  - X1:Y1 =  - Y1
-4035  IF Y1 = 0 THEN 4045
-4040 D = DNG%(ML%(MM,0),(ML%(MM,1) + Y1 + .5)): IF D = 1 OR D > 9 OR D = 
-     2 THEN 4045
-4042 X1 = 0: GOTO 4050
-4045 Y1 = 0: IF X1 = 0 THEN 4050
-4046 D = DN%((ML%(MM,0) + X1 + .5),ML%(MM,1)): IF D = 1 OR D > 9 OR D = 
-     2 THEN X1 = 0: GOTO 4081
-4050 DNG%(ML%(MM,0),ML%(MM,1)) = DNG%(ML%(MM,0),ML%(MM,1)) - 10 * MM
-4055  IF ML%(MM,0) + X1 = PX AND ML%(MM,1) + Y1 = PY THEN 4999
-4060 ML%(MM,0) = ML%(MM,0) + X1:ML%(MM,1) = ML%(MM,1) + Y1
-4080 DNG%(ML%(MM,0),ML%(MM,1)) = (DNG%(ML%(MM,0),ML%(MM,1)) + 10 * MM + 
-     .5)
-4081  IF X1 <  > 0 OR Y1 <  > 0 THEN 4999
-4082  IF MZ%(MM,1) < IN * LP AND RA < 1.3 THEN 4500
-4083  IF MZ%(MM,1) < IN * LP THEN MZ%(MM,1) = MZ%(MM,1) + MM + IN
-4499  GOTO 4999
-4500  IF MM = 2 OR MM = 7 THEN 4600
-4509  PRINT "YOU ARE BEING ATTACKED": PRINT "BY A ";M$(MM)
-4510  IF  RND (1) * 20 -  SGN (PW(3)) - C(3) + MM + IN < 0 THEN  PRINT "
-     MISSED": GOTO 4525
-4520  PRINT "HIT":C(0) = C(0) -  INT ( RND (1) * MM + IN)
-4525  IF PA = 1 THEN  PRINT "-CR- TO CONT. ";: INPUT Q$
-4530  GOTO 4999
-4600  IF  RND (1) < .5 THEN 4509
-4610  IF MM = 7 THEN PW(0) =  INT (PW(0) / 2): PRINT "A GREMLIN STOLE SO
-     ME FOOD": GOTO 4525
-4620 ZZ =  INT ( RND (1) * 6): IF PW(ZZ) < 1 THEN 4620
-4630  PRINT "A THIEF STOLE A ";W$(ZZ):PW(ZZ) = PW(ZZ) - 1: GOTO 4525
-4999  NEXT : RETURN 
-6000  POKE 33,40: PRINT : PRINT : PRINT "        WE MOURN THE PASSING OF
-     "
-6005  IF  LEN (PN$) > 22 THEN PN$ = ""
-6010  IF PN$ = "" THEN PN$ = "THE PEASANT"
-6020 PN$ = PN$ + " AND HIS COMPUTER"
-6030  HTAB (20 -  INT ( LEN (PN$) / 2)): PRINT PN$
-6035  PRINT "  TO INVOKE A MIRACLE OF RESSURECTION"
-6040  PRINT "             <HIT ESC KEY>";
-6050  IF  PEEK ( - 16384) = 155 THEN 1
-6060  GOTO 6050
-7000  HOME : TEXT : HOME 
-7001  CALL 62450
-7010  IF PN$ <  > "" THEN 7500
-7020  PRINT : PRINT : PRINT "     WELCOME PEASANT INTO THE HALLS OF": PRINT 
-     "THE MIGHTY LORD BRITISH. HEREIN THOU MAYCHOOSE TO DARE BATTLE WITH 
-     THE EVIL": PRINT "CREATURES OF THE DEPTHS, FOR GREAT": PRINT "REWARD
-     !"
-7030  PRINT : PRINT "WHAT IS THY NAME PEASANT ";: INPUT PN$
-7040  PRINT "DOEST THOU WISH FOR GRAND ADVENTURE ? ";: GET Q$: IF Q$ <  > 
-     "Y" THEN  PRINT : PRINT "THEN LEAVE AND BEGONE!":PN$ = "": PRINT : PRINT 
-     "         PRESS -SPACE- TO CONT.";: GET Q$: GOTO 1090
-7045  PRINT 
-7050  PRINT : PRINT "GOOD! THOU SHALT TRY TO BECOME A ": PRINT "KNIGHT!!
-     !": PRINT : PRINT "THY FIRST TASK IS TO GO INTO THE": PRINT "DUNGEON
-     S AND TO RETURN ONLY AFTER": PRINT "KILLING A(N) ";:TASK =  INT (C(4
-     ) / 3): PRINT M$(TASK)
-7060  PRINT : PRINT "     GO NOW UPON THIS QUEST, AND MAY": PRINT "LADY 
-     LUCK BE FAIR UNTO YOU.....": PRINT ".....ALSO I, BRITISH, HAVE INCRE
-     ASED": PRINT "EACH OF THY ATTRIBUTES BY ONE!"
-7070  PRINT : PRINT "         PRESS -SPACE- TO CONT.";: GET Q$: FOR X = 
-     0 TO 5:C(X) = C(X) + 1: NEXT : HOME : GOTO 1090
-7500  IF TASK > 0 THEN  PRINT : PRINT : PRINT PN$;" WHY HAST THOU RETURN
-     ED?": PRINT "THOU MUST KILL A(N) ";M$(TASK): PRINT "GO NOW AND COMPL
-     ETE THY QUEST!": PRINT : PRINT "         PRESS -SPACE- TO CONT.";: GET 
-     Q$: HOME : GOTO 1090
-7510  PRINT : PRINT : PRINT : PRINT "AAHH!!.....";PN$: PRINT : PRINT "TH
-     OU HAST ACOMPLISHED THY QUEST!": IF  ABS (TASK) = 10 THEN 7900
-7520  PRINT "UNFORTUNATELY, THIS IS NOT ENOUGH TO": PRINT "BECOME A KNIG
-     HT.":TASK =  ABS (TASK) + 1: PRINT : PRINT "NOW THOU MUST KILL A(N) 
-     ";M$(TASK)
-7530  GOTO 7060
-7900  TEXT : HOME : PRINT : PRINT : PRINT :PN$ = "LORD " + PN$: PRINT " 
-         ";PN$;","
-7910  PRINT "       THOU HAST PROVED THYSELF WORTHY": PRINT "OF KNIGHTHO
-     OD, CONTINUE PLAY IF THOU": PRINT "DOTH WISH, BUT THOU HAST ACOMPLIS
-     HED": PRINT "THE MAIN OBJECTIVE OF THIS GAME..."
-7920  IF LP = 10 THEN 7950
-7930  PRINT : PRINT "   NOW MAYBE THOU ART FOOLHEARTY": PRINT "ENOUGH TO
-      TRY DIFFICULTY LEVEL ";LP + 1
-7940  GOTO 7070
-7950  PRINT : PRINT "...CALL CALIFORNIA PACIFIC COMPUTER": PRINT "AT (41
-     5)-569-9126 TO REPORT THIS": PRINT "AMAZING FEAT!"
-7990  GOTO 7070
+2080 IF DIS = 0 THEN 2160
+2100 IF CENT = 1 OR CENT = 3 OR CENT = 4 THEN  HPLOT L1,T1 TO R1,T1 TO R1,B1 TO L1,B1 TO L1,T1
+2120 IF CENT = 1 OR CENT = 3 THEN EN = 1: GOTO 2600
+2140 IF CENT = 4 THEN  HPLOT CD%(DIS,0),CD%(DIS,3) TO CD%(DIS,0),CD%(DIS,2) TO CD%(DIS,1),CD%(DIS,2) TO CD%(DIS,1),CD%(DIS,3):EN = 1: GOTO 2600
+2160 IF LEFT = 1 OR LEFT = 3 OR LEFT = 4 THEN  HPLOT L1,T1 TO L2,T2: HPLOT L1,B1 TO L2,B2
+2180 IF RIGH = 1 OR RIGH = 3 OR RIGH = 4 THEN  HPLOT R1,T1 TO R2,T2: HPLOT R1,B1 TO R2,B2
+2200 IF LEFT = 4 AND DIS > 0 THEN  HPLOT LD%(DIS,0),LD%(DIS,4) TO LD%(DIS,0),LD%(DIS,2) TO LD%(DIS,1),LD%(DIS,3) TO LD%(DIS,1),LD%(DIS,5)
+2220 IF LEFT = 4 AND DIS = 0 THEN  HPLOT 0,LD%(DIS,2) - 3 TO LD%(DIS,1),LD%(DIS,3) TO LD%(DIS,1),LD%(DIS,5)
+2240 IF RIGH = 4 AND DIS > 0 THEN  HPLOT 279 - LD%(DIS,0),LD%(DIS,4) TO 279 - LD%(DIS,0),LD%(DIS,2) TO 279 - LD%(DIS,1),LD%(DIS,3) TO 279 - LD%(DIS,1),LD%(DIS,5)
+2260 IF RIGH = 4 AND DIS = 0 THEN  HPLOT 279,LD%(DIS,2) - 3 TO 279 - LD%(DIS,1),LD%(DIS,3) TO 279 - LD%(DIS,1),LD%(DIS,5)
+2280 IF LEFT = 3 OR LEFT = 1 OR LEFT = 4 THEN 2340
+2300 IF DIS <  > 0 THEN  HPLOT L1,T1 TO L1,B1
+2320 HPLOT L1,T2 TO L2,T2 TO L2,B2 TO L1,B2
+2340 IF RIGH = 3 OR RIGH = 1 OR RIGH = 4 THEN 2400
+2360 IF DIS <  > 0 THEN  HPLOT R1,T1 TO R1,B1
+2380 HPLOT R1,T2 TO R2,T2 TO R2,B2 TO R1,B2
+2400 IF CENT = 7 OR CENT = 9 THEN  HPLOT FT%(DIS,0),FT%(DIS,4) TO FT%(DIS,2),FT%(DIS,5) TO FT%(DIS,3),FT%(DIS,5) TO FT%(DIS,1),FT%(DIS,4) TO FT%(DIS,0),FT%(DIS,4)
+2420 IF CENT = 8 THEN  HPLOT FT%(DIS,0),158 - FT%(DIS,4) TO FT%(DIS,2),158 - FT%(DIS,5) TO FT%(DIS,3),158 - FT%(DIS,5) TO FT%(DIS,1),158 - FT%(DIS,4) TO FT%(DIS,0),158 - FT%(DIS,4)
+2440 IF CENT = 7 OR CENT = 8 THEN BASE = LAD%(DIS,3):TP = LAD%(DIS,2):LX= LAD%(DIS,0):RX = LAD%(DIS,1): HPLOT LX,BA TO LX,TP: HPLOT RX,TP TO RX,BA
+2460 IF CENT = 7 OR CENT = 8 THEN Y1 = (BA * 4 + TP) / 5:Y2 = (BA * 3 + TP * 2) / 5:Y3 = (BA * 2 + TP * 3) / 5:Y4 = (BA + TP * 4) / 5: HPLOT LX,Y1 TO RX,Y1: HPLOT LX,Y2 TO RX,Y2: HPLOT LX,Y3 TO RX,Y3: HPLOT LX,Y4 TO RX,Y4
+2480 IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 - 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3)
+2490 IF CENT = 5 AND DIS > 0 THEN  INVERSE : PRINT "CHEST!": NORMAL 
+2500 IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 - 10 / DIS,PER%(DIS,3) - 10/ DIS TO 139 - 5 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 5 / DIS TO 139 + 10 / DIS,PER%(DIS,3)
+2520 IF DIS > 0 AND CENT = 5 THEN  HPLOT 139 + 10 / DIS,PER%(DIS,3) - 10/ DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS
+2600 IF MC < 1 THEN 4900
+2650 B = 79 + YY%(DIS):C = 139
+2660 INVERSE : IF MC = 8 THEN  PRINT "CHEST!";: CALL  - 868: PRINT : NORMAL : GOTO 2690
+2670 PRINT M$(MC);: CALL  - 868: PRINT : NORMAL 
+2690 IF DIS = 0 THEN 4900
+2700 ON MC GOTO 3000,3100,3200,3300,3400,3500,3600,3700,3800,3900
+2800  GOTO 4900
+3000 HPLOT C - 23 / DIS,B TO C - 15 / DIS,B TO C - 15 / DI,B - 15 / DI TO C - 8 / DI,B - 30 / DI TO C + 8 / DI,B - 30 / DI TO C + 15 / DI,B - 15 / DI TO C + 15 / DI,B TO C + 23 / DI,B
+3010 HPLOT C,B - 26 / DI TO C,B - 65 / DI: HPLOT C - 2 / DI + .5,B - 38 / DI TO C + 2 / DI + .5,B - 38 / DI: HPLOT C - 3 / DI + .5,B - 45 / DITO C + 3 / DI + .5,B - 45 / DI: HPLOT C - 5 / DI + .5,B - 53 / DI TO C + 5 / DI + .5,B - 53 / DI
+3020 HPLOT C - 23 / DI,B - 56 / DI TO C - 30 / DI,B - 53 / DI TO C - 23 / DI,B - 45 / DI TO C - 23 / DI,B - 53 / DI TO C - 8 / DI,B - 38 / DI
+3030 HPLOT C - 15 / DI,B - 45 / DI TO C - 8 / DI,B - 60 / DI TO C + 8 / DI,B - 60 / DI TO C + 15 / DI,B - 45 / DI: HPLOT C + 15 / DI,B - 42 / DI TO C + 15 / DI,B - 57 / DI: HPLOT C + 12 / DI,B - 45 / DI TO C + 20 / DI,B - 45 / DI
+3040 HPLOT C,B - 75 / DI TO C - 5 / DI + .5,B - 80 / DI TO C - 8 / DI,B - 75 / DI TO C - 5 / DI + .5,B - 65 / DI TO C + 5 / DI + .5,B - 65 / DI TO C + 5 / DI + .5,B - 68 / DI TO C - 5 / DI + .5,B - 68 / DI TO C- 5 / DI + .5,B - 65 / DI
+3050 HPLOT  TO C + 5 / DI + .5,B - 65 / DI TO C + 8 / DI,B - 75 / DI TO C + 5 / DI + .5,B - 80 / DI TO C - 5 / DI + .5,B - 80 / DI: HPLOT C - 5 / DI + .5,B - 72 / DI: HPLOT C + 5 / DI + .5,B - 72 / DI
+3090 GOTO 4900
+3100 HPLOT C,B - 56 / DI TO C,B - 8 / DI TO C + 10 / DI,B TO C + 30 / DI,B TO C + 30 / DI,B - 45 / DI TO C + 10 / DI,B - 64 / DI TO C,B - 56/ DI
+3110 HPLOT  TO C - 10 / DI,B - 64 / DI TO C - 30 / DI,B - 45 / DI TO C - 30 / DI,B TO C - 10 / DI,B TO C,B - 8 / DI
+3120 HPLOT C - 10 / DI,B - 64 / DI TO C - 10 / DI,B - 75 / DI TO C,B - 83 / DI TO C + 10 / DI,B - 75 / DI TO C,B - 79 / DI TO C - 10 / DI,B - 75 / DI TO C,B - 60 / DI TO C + 10 / DI,B - 75 / DI TO C + 10 / DI,B- 64 / DI
+3190 GOTO 4900
+3200 HPLOT C + 5 / DI,B - 30 / DI TO C,B - 25 / DI TO C - 5 / DI,B - 30 / DI TO C - 15 / DI,B - 5 / DI TO C - 10 / DI,B TO C + 10 / DI,B TO C + 15 / DI,B - 5 / DI
+3210 HPLOT  TO C + 20 / DI,B - 5 / DI TO C + 10 / DI,B TO C + 15 / DI,B - 5 / DI TO C + 5 / DI,B - 30 / DI TO C + 10 / DI,B - 40 / DI TO C + 3/ DI + .5,B - 35 / DI TO C - 3 / DI + .5,B - 35 / DI TO C - 10 / DI,B - 40 / DI TO C - 5 / DI,B - 30 / DI
+3220 HPLOT C - 5 / DI,B - 33 / DI TO C - 3 / DI + .5,B - 30 / DI: HPLOT C + 5 / DI,B - 33 / DI TO C + 3 / DI + .5,B - 30 / DI: HPLOT C - 5 / DI,B - 20 / DI TO C - 5 / DI,B - 15 / DI
+3230 HPLOT C + 5 / DI,B - 20 / DI TO C + 5 / DI,B - 15 / DI: HPLOT C - 7/ DI,B - 20 / DI TO C - 7 / DI,B - 15 / DI: HPLOT C + 7 / DI,B - 20/ DI TO C + 7 / DI,B - 15 / DI
+3290 GOTO 4900
+3300 HPLOT C,B TO C - 15 / DI,B TO C - 8 / DI,B - 8 / DI TO C - 8 / DI,B - 15 / DI TO C - 15 / DI,B - 23 / DI TO C - 15 / DI,B - 15 / DI TO C - 23 / DI,B - 23 / DI
+3310 HPLOT  TO C - 23 / DI,B - 45 / DI TO C - 15 / DI,B - 53 / DI TO C - 8 / DI,B - 53 / DI TO C - 15 / DI,B - 68 / DI TO C - 8 / DI,B - 75 / DI TO C,B - 75 / DI
+3320 HPLOT C,B TO C + 15 / DI,B TO C + 8 / DI,B - 8 / DI TO C + 8 / DI,B - 15 / DI TO C + 15 / DI,B - 23 / DI TO C + 15 / DI,B - 15 / DI TO C + 23 / DI,B - 23 / DI
+3330 HPLOT  TO C + 23 / DI,B - 45 / DI TO C + 15 / DI,B - 53 / DI TO C + 8 / DI,B - 53 / DI TO C + 15 / DI,B - 68 / DI TO C + 8 / DI,B - 75 / DI TO C,B - 75 / DI
+3340 HPLOT C - 15 / DI,B - 68 / DI TO C + 15 / DI,B - 68 / DI: HPLOT C - 8 / DI,B - 53 / DI TO C + 8 / DI,B - 53 / DI: HPLOT C - 23 / DI,B - 15 / DI TO C + 8 / DI,B - 45 / DI
+3350 HPLOT C - 8 / DI,B - 68 / DI TO C,B - 60 / DI TO C + 8 / DI,B - 68 / DI TO C + 8 / DI,B - 60 / DI TO C - 8 / DI,B - 60 / DI TO C - 8 / DI,B - 68 / DI
+3360 HPLOT C,B - 38 / DI TO C - 8 / DI,B - 38 / DI TO C + 8 / DI,B - 53 / DI TO C + 8 / DI,B - 45 / DI TO C + 15 / DI,B - 45 / DI TO C,B - 30 / DI TO C,B - 38 / DI
+3390 GOTO 4900
+3400 HPLOT C - 10 / DI,B - 15 / DI TO C - 10 / DI,B - 30 / DI TO C - 15 / DI,B - 20 / DI TO C - 15 / DI,B - 15 / DI TO C - 15 / DI,B TO C + 15/ DI,B TO C + 15 / DI,B - 15 / DI TO C - 15 / DI,B - 15 / DI
+3410 HPLOT C - 15 / DI,B - 10 / DI TO C + 15 / DI,B - 10 / DI: HPLOT C - 15 / DI,B - 5 / DI TO C + 15 / DI,B - 5 / DI
+3420 HPLOT C,B - 15 / DI TO C - 5 / DI,B - 20 / DI TO C - 5 / DI,B - 35 / DI TO C + 5 / DI,B - 35 / DI TO C + 5 / DI,B - 20 / DI TO C + 10 / DI,B - 15 / DI
+3430 HPLOT C - 5 / DI,B - 20 / DI TO C + 5 / DI,B - 20 / DI: HPLOT C - 5/ DI,B - 25 / DI TO C + 5 / DI,B - 25 / DI: HPLOT C - 5 / DI,B - 30/ DI TO C + 5 / DI,B - 30 / DI
+3440 HPLOT C - 10 / DI,B - 35 / DI TO C - 10 / DI,B - 40 / DI TO C - 5 / DI,B - 45 / DI TO C + 5 / DI,B - 45 / DI TO C + 10 / DI,B - 40 / DI TO C + 10 / DI,B - 35 / DI
+3450 HPLOT C - 10 / DI,B - 40 / DI TO C,B - 45 / DI TO C + 10 / DI,B - 40 / DI
+3460 HPLOT C - 5 / DI,B - 40 / DI TO C + 5 / DI,B - 40 / DI TO C + 15 / DI,B - 30 / DI TO C,B - 40 / DI TO C - 15 / DI,B - 30 / DI TO C - 5 / DI + .5,B - 40 / DI
+3490 GOTO 4900
+3500 HPLOT C - 20 / DI,79 - YY%(DIS) TO C - 20 / DI,B - 88 / DI TO C - 10 / DI,B - 83 / DI TO C + 10 / DI,B - 83 / DI TO C + 20 / DI,B - 88 / DI TO C + 20 / DI,79 - YY%(DIS) TO C - 20 / DI,79 - YY%(DI)
+3510 HPLOT C - 20 / DI,B - 88 / DI TO C - 30 / DI,B - 83 / DI TO C - 30 / DI,B - 78 / DI: HPLOT C + 20 / DI,B - 88 / DI TO C + 30 / DI,B - 83 / DI TO C + 40 / DI,B - 83 / DI
+3520 HPLOT C - 15 / DI,B - 86 / DI TO C - 20 / DI,B - 83 / DI TO C - 20 / DI,B - 78 / DI TO C - 30 / DI,B - 73 / DI TO C - 30 / DI,B - 68 / DI TO C - 20 / DI,B - 63 / DI
+3530 HPLOT C - 10 / DI,B - 83 / DI TO C - 10 / DI,B - 58 / DI TO C,B - 50 / DI: HPLOT C + 10 / DI,B - 83 / DI TO C + 10 / DI,B - 78 / DI TO C + 20 / DI,B - 73 / DI TO C + 20 / DI,B - 40 / DI
+3540 HPLOT C + 15 / DI,B - 85 / DI TO C + 20 / DI,B - 78 / DI TO C + 30 / DI,B - 76 / DI TO C + 30 / DI,B - 60 / DI
+3550 HPLOT C,B - 83 / DI TO C,B - 73 / DI TO C + 10 / DI,B - 68 / DI TO C + 10 / DI,B - 63 / DI TO C,B - 58 / DI
+3590 GOTO 4900
+3600 HPLOT C + 5 / DI + .5,B - 10 / DI TO C - 5 / DI + .5,B - 10 / DI TO C,B - 15 / DI TO C + 10 / DI,B - 20 / DI TO C + 5 / DI + .5,B - 15 / DI TO C + 5 / DI + .5,B - 10 / DI
+3610 HPLOT  TO C + 7 / DI + .5,B - 6 / DI TO C + 5 / DI + .5,B - 3 / DI TO C - 5 / DI + .5,B - 3 / DI TO C - 7 / DI + .5,B - 6 / DI TO C - 5 / DI + .5,B - 10 / DI
+3620 HPLOT C + 2 / DI + .5,B - 3 / DI TO C + 5 / DI + .5,B TO C + 8 / DI,B: HPLOT C - 2 / DI + .5,B - 3 / DI TO C - 5 / DI + .5,B TO C - 8 / DI,B: HPLOT C + 3 / DI + .5,B - 8 / DI: HPLOT C - 3 / DI + .5,B - 8 / DI: HPLOT C + 3 / DI + .5,B - 5 / DI TO C - 3 / DI + .5,B - 5 / DI
+3630 GOTO 4900
+3700 HPLOT 139 - 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 10 / DIS,PER%(DIS,3) TO 139 - 10 / DIS,PER%(DIS,3)
+3710 HPLOT 139 - 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 - 5 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 5 / DIS TO 139 + 10 / DIS,PER%(DIS,3)
+3720 HPLOT 139 + 10 / DIS,PER%(DIS,3) - 10 / DIS TO 139 + 15 / DIS,PER%(DIS,3) - 15 / DIS
+3730 GOTO 4900
+3800 HPLOT C - 14 / DI,B - 46 / DI TO C - 12 / DI,B - 37 / DI TO C - 20 / DI,B - 32 / DI TO C - 30 / DI,B - 32 / DI TO C - 22 / DI,B - 24 / DI TO C - 40 / DI,B - 17 / DI TO C - 40 / DI,B - 7 / DI TO C - 38 / DI,B - 5 / DI TO C - 40 / DI,B - 3 / DI TO C - 40 / DI,B
+3810 HPLOT  TO C - 36 / DI,B TO C - 34 / DI,B - 2 / DI TO C - 32 / DI,B TO C - 28 / DI,B TO C - 28 / DI,B - 3 / DI TO C - 30 / DI,B - 5 / DI TO C - 28 / DI,B - 7 / DI TO C - 28 / DI,B - 15 / DI TO C,B - 27 / DI
+3820 HPLOT C + 14 / DI,B - 46 / DI TO C + 12 / DI,B - 37 / DI TO C + 20 / DI,B - 32 / DI TO C + 30 / DI,B - 32 / DI TO C + 22 / DI,B - 24 / DITO C + 40 / DI,B - 17 / DI TO C + 40 / DI,B - 7 / DI TO C + 38 / DI,B - 5 / DI TO C + 40 / DI,B - 3 / DI TO C + 40 / DI,B
+3830 HPLOT  TO C + 36 / DI,B TO C + 34 / DI,B - 2 / DI TO C + 32 / DI,B TO C + 28 / DI,B TO C + 28 / DI,B - 3 / DI TO C + 30 / DI,B - 5 / DI TO C + 28 / DI,B - 7 / DI TO C + 28 / DI,B - 15 / DI TO C,B - 27 / DI
+3840 HPLOT C + 6 / DI,B - 48 / DI TO C + 38 / DI,B - 41 / DI TO C + 40 / DI,B - 42 / DI TO C + 18 / DI,B - 56 / DI TO C + 12 / DI,B - 56 / DI TO C + 10 / DI,B - 57 / DI TO C + 8 / DI,B - 56 / DI TO C - 8 / DI,B - 56 / DI TO C - 10 / DI,B - 58 / DI TO C + 14 / DI,B - 58 / DI TO C + 16 / DI,B - 59 / DI
+3850 HPLOT  TO C + 8 / DI,B - 63 / DI TO C + 6 / DI,B - 63 / DI TO C + 2/ DI + .5,B - 70 / DI TO C + 2 / DI + .5,B - 63 / DI TO C - 2 / DI + .5,B - 63 / DI TO C - 2 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 63 / DI TO C - 8 / DI,B - 63 / DI TO C - 16 / DI,B - 59 / DI TO C - 14 / DI,B - 58 / DI
+3860 HPLOT  TO C - 10 / DI,B - 57 / DI TO C - 12 / DI,B - 56 / DI TO C - 18 / DI,B - 56 / DI TO C - 36 / DI,B - 47 / DI TO C - 36 / DI,B - 39/ DI TO C - 28 / DI,B - 41 / DI TO C - 28 / DI,B - 46 / DI TO C - 20 / DI,B - 50 / DI TO C - 18 / DI,B - 50 / DI TO C - 14 / DI,B - 46 / DI
+3870 GOTO 30870
+3900 HPLOT C + 6 / DI,B - 60 / DI TO C + 30 / DI,B - 90 / DI TO C + 60 / DI,B - 30 / DI TO C + 60 / DI,B - 10 / DI TO C + 30 / DI,B - 40 / DITO C + 15 / DI,B - 40 / DI
+3910 HPLOT C - 6 / DI,B - 60 / DI TO C - 30 / DI,B - 90 / DI TO C - 60 / DI,B - 30 / DI TO C - 60 / DI,B - 10 / DI TO C - 30 / DI,B - 40 / DITO C - 15 / DI,B - 40 / DI
+3920 HPLOT C,B - 25 / DI TO C + 6 / DI,B - 25 / DI TO C + 10 / DI,B - 20 / DI TO C + 12 / DI,B - 10 / DI TO C + 10 / DI,B - 6 / DI TO C + 10 / DI,B TO C + 14 / DI,B TO C + 15 / DI,B - 5 / DI TO C + 16 / DI,B TO C + 20 / DI,B
+3930 HPLOT  TO C + 20 / DI,B - 6 / DI TO C + 18 / DI,B - 10 / DI TO C + 18 / DI,B - 20 / DI TO C + 15 / DI,B - 30 / DI TO C + 15 / DI,B - 45/ DI TO C + 40 / DI,B - 60 / DI TO C + 40 / DI,B - 70 / DI
+3940 HPLOT  TO C + 10 / DI,B - 55 / DI TO C + 6 / DI,B - 60 / DI TO C + 10 / DI,B - 74 / DI TO C + 6 / DI,B - 80 / DI TO C + 4 / DI + .5,B - 80 / DI TO C + 3 / DI + .5,B - 82 / DI TO C + 2 / DI + .5,B - 80 / DI TO C,B - 80 / DI
+3950 HPLOT C,B - 25 / DI TO C - 6 / DI,B - 25 / DI TO C - 10 / DI,B - 20 / DI TO C - 12 / DI,B - 10 / DI TO C - 10 / DI,B - 6 / DI TO C - 10/ DI,B TO C - 14 / DI,B TO C - 15 / DI,B - 5 / DI TO C - 16 / DI,B TO C - 20 / DI,B
+3960 HPLOT  TO C - 20 / DI,B - 6 / DI TO C - 18 / DI,B - 10 / DI TO C -  18 / DI,B - 20 / DI TO C - 15 / DI,B - 30 / DI TO C - 15 / DI,B - 45/ DI TO C - 40 / DI,B - 60 / DI TO C - 40 / DI,B - 70 / DI
+3970 HPLOT  TO C - 10 / DI,B - 55 / DI TO C - 6 / DI,B - 60 / DI TO C -  10 / DI,B - 74 / DI TO C - 6 / DI,B - 80 / DI TO C - 4 / DI + .5,B - 80 / DI TO C - 3 / DI + .5,B - 82 / DI TO C - 2 / DI + .5,B - 80 / DI TO C,B - 80 / DI
+3980 HPLOT C - 6 / DI,B - 25 / DI TO C,B - 6 / DI TO C + 10 / DI,B TO C +  4 / DI + .5,B - 8 / DI TO C + 6 / DI,B - 25 / DI: HPLOT C - 40 / DI,B - 64 / DI TO C - 40 / DI,B - 90 / DI TO C - 52 / DI,B - 80 / DI TO C - 52 / DI,B - 40 / DI
+3990 HPLOT C + 40 / DI,B - 86 / DI TO C + 38 / DI,B - 92 / DI TO C + 42 /  DI,B - 92 / DI TO C + 40 / DI,B - 86 / DI TO C + 40 / DI,B - 50 / DI     
+4000 HPLOT C + 4 / DI + .5,B - 70 / DI TO C + 6 / DI,B - 74 / DI: HPLOT  C - 4 / DI + .5,B - 70 / DI TO C - 6 / DI,B - 74 / DI: HPLOT C,B - 64 / DI TO C,B - 60 / DI: GOTO 4900
+4900 IF EN = 1 THEN EN = 0: RETURN 
+4910 DIS = DIS + 1: GOTO 2020
+5000 ZZ =  RND ( -  ABS (LN) - TX * 10 - TY * 1000 + INOUT * 31.4)
+5010 FOR X = 1 TO 9: FOR Y = 1 TO 9:DNG%(X,Y) = 0: NEXT : NEXT 
+5100 FOR X = 0 TO 10:DNG%(X,0) = 1:DNG%(X,10) = 1:DNG%(0,X) = 1:DNG%(10,X) = 1: NEXT 
+5200 FOR X = 2 TO 8 STEP 2: FOR Y = 1 TO 9:DNG%(X,Y) = 1:DNG(Y,X) = 1: NEXT : NEXT 
+5300 FOR X = 2 TO 8 STEP 2: FOR Y = 1 TO 9 STEP 2
+5400 IF  RND (1) > .95 THEN DNG%(X,Y) = 2
+5410 IF  RND (1) > .95 THEN DNG%(Y,X) = 2
+5420 IF  RND (1) > .6 THEN DNG%(Y,X) = 3
+5430 IF  RND (1) > .6 THEN DNG%(X,Y) = 3
+5440 IF  RND (1) > .6 THEN DNG%(X,Y) = 4
+5450 IF  RND (1) > .6 THEN DNG%(Y,X) = 4
+5460 IF  RND (1) > .97 THEN DNG%(Y,X) = 9
+5470 IF  RND (1) > .97 THEN DNG%(X,Y) = 9
+5480 IF  RND (1) > .94 THEN DNG%(X,Y) = 5
+5490 IF  RND (1) > .94 THEN DNG%(Y,X) = 5
+5680 NEXT : NEXT 
+5690 DNG%(2,1) = 0: IF INOUT / 2 =  INT (INOUT / 2) THEN DNG%(7,3) = 7:DNG%(3,7) = 8
+5700 IF INOUT / 2 <  >  INT (INOUT / 2) THEN DNG%(7,3) = 8:DNG%(3,7) = 7 
+5800 IF INOUT = 1 THEN DNG%(1,1) = 8:DNG%(7,3) = 0
+5850 GOSUB 20000
+5900 RETURN 
+10000 VTAB (24): PRINT "COMMAND? ";: CALL  - 868
+10010 X =  PEEK ( - 16384): IF X < 128 THEN 10010
+10020 Q =  FRE (0)
+10100 POKE  - 16368,0
+10300 IF X = 141 THEN  ON  SGN (INOUT) + 1 GOTO 11000,11500
+10400 IF X = 149 THEN  ON  SGN (INOUT) + 1 GOTO 12000,12500
+10500 IF X = 136 THEN  ON  SGN (INOUT) + 1 GOTO 13000,13500
+10600 IF X = 175 THEN  ON  SGN (INOUT) + 1 GOTO 14000,14500
+10700 IF X = 216 THEN  ON  SGN (INOUT) + 1 GOTO 15000,15500
+10800 IF X = 193 OR X = 155 THEN  ON  SGN (INOUT) + 1 GOTO 16000,16500
+10810 IF X = 160 THEN  PRINT "PASS": GOTO 10900
+10850 IF X = 211 THEN 17000
+10860 IF X = 208 THEN  IF PA = 1 THEN PA = 0: PRINT "PAUSE OFF": GOTO 10000
+10870 IF X = 208 THEN  IF PA = 0 THEN PA = 1: PRINT "PAUSE ON": GOTO 10000
+10890 PRINT "HUH?": GOTO 10000
+10900 PW(0) = PW(0) - 1 +  SGN (INOUT) * .9: IF PW(0) < 0 THEN C(0) = 0: PRINT : PRINT "YOU HAVE STARVED!!!!!": GOTO 10930
+10910 POKE 33,40: VTAB (22): HTAB (30): PRINT "FOOD=";PW(0);: CALL  - 868: VTAB (23): HTAB (30): PRINT "H.P.=";C(0);: CALL  - 868: VTAB (24): HTAB (30): PRINT "GOLD=";C(5);: CALL  - 868: POKE 33,29: HTAB (1)
+10920 PW(0) =  INT (PW(0) * 10) / 10
+10930 IF C(0) <  = 0 THEN 6000 **FIX
+10950 IF IN > 0 THEN  GOSUB 40000: IF C(0) <  = 0 THEN 10930
+10960 POKE 33,40: VTAB (22): HTAB (30): PRINT "FOOD=";PW(0);: CALL  - 868: VTAB (23): HTAB (30): PRINT "H.P.=";C(0);: CALL  - 868: VTAB (24): HTAB (30): PRINT "GOLD=";C(5);: CALL  - 868: POKE 33,29: HTAB (1)
+10970 IF INOUT = 0 THEN  GOSUB 1000: GOTO 10000
+10980 IF INOUT > 0 THEN  GOSUB 2000: GOTO 10000
+11000 PRINT "NORTH": IF TER%(TX,TY - 1) = 1 THEN  PRINT "YOU CAN'T PASS THE MOUNTAINS": GOTO 10900
+11100 TY = TY - 1: GOTO 10900
+11500 IF DNG%(PX + DX,PY + DY) <  > 1 AND DNG%(PX + DX,PY + DY) < 10 THEN PX = PX + DX:PY = PY + DY
+11550 PRINT "FORWARD"
+11600 IF DNG%(PX,PY) = 2 THEN  PRINT "AAARRRGGGHHH!!! A TRAP!":C(0)= C(0) -  INT ( RND (1) * INOUT + 3):MR = 1:INOUT = INOUT + 1: PRINT "FALLING TO LEVEL ";IN: GOSUB 5000: GOTO 10900
+11650 Z = 0
+11700 IF DNG%(PX,PY) = 5 THEN DNG%(PX,PY) = 0: PRINT "GOLD!!!!!":Z =  INT ( RND (1) * 5 * INOUT + INOUT): PRINT Z;"-PIECES OF EIGHT":C(5) = C(5) + Z
+11750 IF Z > 0 THEN Z =  INT ( RND (1) * 6): PRINT "AND A ";W$(Z):PW(Z) = PW(Z) + 1: GOTO 10900
+11900 GOTO 10900
+12000 PRINT "EAST": IF TER%(TX + 1,TY) = 1 THEN  PRINT "YOU CAN'T PASS THE MOUNTAINS": GOTO 10900
+12100 TX = TX + 1: GOTO 10900
+12500 PRINT "TURN RIGHT"
+12550 IF DX <  > 0 THEN DY = DX:DX = 0: GOTO 10900
+12600 DX =  - DY:DY = 0: GOTO 10900
+13000  PRINT "WEST": IF TER%(TX - 1,TY) = 1 THEN  PRINT "YOU CAN'T PASS THE MOUNTAINS": GOTO 10900
+13100 TX = TX - 1: GOTO 10900
+13500 PRINT "TURN LEFT"
+13550 IF DX <  > 0 THEN DY =  - DX:DX = 0: GOTO 10900
+13600 DX = DY:DY = 0: GOTO 10900
+14000 PRINT "SOUTH": IF TER%(TX,TY + 1) = 1 THEN  PRINT "YOU CAN'T PASS THE MOUNTAINS": GOTO 10900
+14100 TY = TY + 1: GOTO 10900
+14500 PRINT "TURN AROUND":DX =  - DX:DY =  - DY: GOTO 10900
+15000 IF TE%(TX,TY) = 3 THEN  GOSUB 60080: GOSUB 60200: GOTO 10900
+15100 IF TE%(TX,TY) = 4 AND INOUT = 0 THEN  PRINT "GO DUNGEON": PRINT "PLEASE WAIT ":INOUT = 1: GOSUB 500:DX = 1:DY = 0:PX = 1:PY = 1: GOTO 10900
+15150 IF TE%(TX,TY) = 5 THEN 70000 **FIX**
+15200 PRINT "HUH?": GOTO 10000
+15500 IF DNG%(PX,PY) <  > 7 AND DNG%(PX,PY) <  > 9 THEN 15800
+15550 PRINT "GO DOWN TO LEVEL ";INOUT + 1
+15600 INOUT = INOUT + 1: GOSUB 500:MR = 1: GOTO 10900
+15800 IF DNG%(PX,PY) <  > 8 THEN  PRINT "HUH?": GOTO 10900
+15810 IF IN = 1 THEN  PRINT "LEAVE DUNGEON":IN = 0: GOTO 15860
+15840 PRINT "GO UP TO LEVEL ";INOUT - 1
+15850 INOUT = INOUT - 1: GOSUB 500:MR = 1
+15860 IF IN = 0 THEN  PRINT "THOU HAST GAINED": PRINT LK;" HIT POINTS":C(0) = C(0) + LK:LK = 0
+15870 GOTO 10900
+16000 GOTO 10900
+16500 MN = 0:DAM = 0: PRINT "ATTACK": PRINT "WHICH WEAPON ";: GET Q$
+16510 IF Q$ = "R" THEN DAM = 10: PRINT "RAPIER": IF PW(1) < 1 THEN  PRINT "NOT OWNED": GOTO 16500
+16520 IF Q$ = "A" THEN DAM = 5: PRINT "AXE": IF PW(2) < 1 THEN  PRINT "NOT OWNED": GOTO 16500
+16530 IF Q$ = "S" THEN DAM = 1: PRINT "SHIELD": IF PW(3) < 1 THEN  PRINT "NOT OWNED": GOTO 16500
+16540 IF Q$ = "B" THEN DAM = 4: PRINT "BOW": IF PW(4) < 1 THEN  PRINT "NOT OWNED": GOTO 16500
+16550 IF Q$ = "M" THEN  PRINT "MAGIC AMULET": GOTO 16800
+16560 IF Q$ = "B" AND PT$ = "M" THEN  PRINT "MAGES CAN'T USE BOWS!": GOTO 16500
+16570 IF Q$ = "R" AND PT$ = "M" THEN  PRINT "MAGES CAN'T USE RAPIERS!": GOTO 16500
+16590 IF DAM = 0 THEN  PRINT "HANDS"
+16600 IF DAM = 5 OR DAM = 4 THEN 16700
+16610 MN = DN%(PX + DX,PY + DY) / 10:MN =  INT (MN)
+16620 IF MN < 1 OR C(2) -  RND (1) * 25 < MN + INOUT THEN  PRINT "YOU MISSED": GOTO 16680
+16630 PRINT "HIT!!! ":DAM  ( RND (1) * DAM + C(1) / 5):MZ%(MN,1) = MZ%(MN,1) - DAM
+16640 PRINT M$(MN);"'S HIT POINTS=";MZ%(MN,1)
+16650 IF MZ%(MN,1) < 1 THEN  PRINT "THOU HAST KILLED A ";M$(MN): PRINT "THOU SHALT RECEIVE":DA =  INT (MN + IN): PRINT DA;" PIECES OF EIGHT"
+16660 IF MZ%(MN,1) < 1 THEN C(5) =  INT (C(5) + DA):DNG%(ML%(MN,0),ML%(MN,1)) = DNG%(ML%(MN,0),ML%(MN,1)) - 10 * MN:MZ%(MN,0) = 0
+16670 LK = LK +  INT (MN * IN / 2): IF MN = TASK THEN TASK =  - TASK
+16680 IF PA = 1 THEN  PRINT "-CR- TO CONT. ";: INPUT Q$
+16690 GOTO 10900
+16700 IF DAM = 5 THEN  PRINT "TO THROW OR SWING:";: GET Q$: IF Q$ <  > "T" THEN  PRINT "SWING": GOTO 16610
+16710 IF DAM = 5 THEN  PRINT "THROW":PW(2) = PW(2) - 1
+16720 FOR Y = 1 TO 5: IF PX + DX * Y < 1 OR PX + DX * Y > 9 OR PY + DY * Y > 9 OR PY + DY * Y < 0 THEN 16620
+16730 MN = DNG%(PX + DX * Y,PY + DY * Y):MN =  INT (MN / 10): IF MN > 0 THEN 16620
+16740 NEXT : GOTO 16620
+16800 IF PW(5) < 1 THEN  PRINT "NONE OWNED": GOTO 16500
+16810 IF PT$ = "F" THEN Q =  INT ( RND (1) * 4 + 1): GOTO 16850
+16820 PRINT "1-LADDER-UP","2-LADDER-DN": PRINT "3-KILL","4-BAD??": PRINT "CHOICE ";: GET Q$:Q =  VAL (Q$): PRINT Q: IF Q < 1 OR Q > 4 THEN 16820
+16830 IF  RND (1) > .75 THEN  PRINT "LAST CHARGE ON THIS AMULET!":PW(5) = PW(5) - 1
+16850 ON Q GOTO 16860,16900,16910,16920
+16860 PRINT "LADDER UP":DNG%(PX,PY) = 8: GOTO 10900
+16900 PRINT "LADDER DOWN":DNG%(PX,PY) = 7: GOTO 10900
+16910 PRINT "MAGIC ATTACK":DAM = 10 + INOUT: GOTO 16720
+16920 ON  INT ( RND (1) * 3 + 1) GOTO 16930,16950,16970
+16930 PRINT "YOU HAVE BEEN TURNED": PRINT "INTO A TOAD!"
+16940 FOR Z2 = 1 TO 4:C(Z2) = 3: NEXT Z2: GOTO 10900
+16950 PRINT "YOU HAVE BEEN TURNED": PRINT "INTO A LIZARD MAN": FOR Y = 0 TO 4:C(Y) =  INT (C(Y) * 2.5): NEXT : GOTO 10900
+16970 PRINT "BACKFIRE":C(0) = C(0) / 2: GOTO 10900
+17000 GOSUB 60080: HOME : PRINT "PRESS -CR- TO CONTINUE";: INPUT Q$: TEXT : HOME : GOTO 1090
+20000 NM = 0: FOR X = 1 TO 10
+20050 MZ%(X,0) = 0:MZ%(X,1) = X + 3 + INOUT
+20100 IF X - 2 > INO OR  RND (1) > .4 THEN 20900
+20200 ML%(X,0) =  INT ( RND (1) * 9 + 1):ML%(X,1) =  INT ( RND (1) * 9 + 1)
+20300 IF DNG%(ML%(X,0),ML%(X,1)) <  > 0 THEN 20200
+20400 IF ML%(X,0) = PX AND ML%(X,1) = PY THEN 20200
+20500 DNG%(ML%(X,0),ML%(X,1)) = X * 10
+20510 MZ%(X,0) = 1
+20520 NM = NM + 1
+20550 MZ%(X,1) = X * 2 + IN * 2 * LP
+20900  NEXT : RETURN 
+30870 HPLOT C - 28 / DI,B - 41 / DI TO C + 30 / DI,B - 55 / DI: HPLOT C + 28 / DI,B - 58 / DI TO C + 22 / DI,B - 56 / DI TO C + 22 / DI,B - 53/ DI TO C + 28 / DI,B - 52 / DI TO C + 34 / DI,B - 54 / DI: HPLOT C+ 20 / DI,B - 50 / DI TO C + 26 / DI,B - 47 / DI
+30880 HPLOT C + 10 / DI,B - 58 / DI TO C + 10 / DI,B - 61 / DI TO C + 4 / DI,B - 58 / DI: HPLOT C - 10 / DI,B - 58 / DI TO C - 10 / DI,B - 61 / DI TO C - 4 / DI,B - 58 / DI: HPLOT C + 40 / DI,B - 9 / DI TO C + 50/ DI,B - 12 / DI TO C + 40 / DI,B - 7 / DI
+30890 HPLOT C - 8 / DI,B - 25 / DI TO C + 6 / DI,B - 7 / DI TO C + 28 / DI,B - 7 / DI TO C + 28 / DI,B - 9 / DI TO C + 20 / DI,B - 9 / DI TO C + 6 / DI,B - 25 / DI: GOTO 490
+40000 FOR MM = 1 TO 10: IF MZ%(MM,0) = 0 THEN 49990
+40100 RA =  SQR ((PX - ML%(MM,0)) ^ 2 + (PY - ML%(MM,1)) ^ 2)
+40110 IF MZ%(MM,1) < IN * LP THEN 40300
+40200 IF RA < 1.3 THEN 45000
+40250 IF MM = 8 AND RA < 3 THEN 49990
+40300 X1 =  SGN (PX - ML%(MM,0)):Y1 =  SGN (PY - ML%(MM,1))
+40310 IF MZ%(MM,1) < IN * LP THEN X1 =  - X1:Y1 =  - Y1
+40350 IF Y1 = 0 THEN 40450
+40400 D = DNG%(ML%(MM,0),(ML%(MM,1) + Y1 + .5)): IF D = 1 OR D > 9 OR D = 2 THEN 40450
+40420 X1 = 0: GOTO 40500
+40450 Y1 = 0: IF X1 = 0 THEN 40500
+40460 D = DN%((ML%(MM,0) + X1 + .5),ML%(MM,1)): IF D = 1 OR D > 9 OR D = 2 THEN X1 = 0: GOTO 40810
+40500 DNG%(ML%(MM,0),ML%(MM,1)) = DNG%(ML%(MM,0),ML%(MM,1)) - 10 * MM
+40550 IF ML%(MM,0) + X1 = PX AND ML%(MM,1) + Y1 = PY THEN 49990
+40600 ML%(MM,0) = ML%(MM,0) + X1:ML%(MM,1) = ML%(MM,1) + Y1
+40800 DNG%(ML%(MM,0),ML%(MM,1)) = (DNG%(ML%(MM,0),ML%(MM,1)) + 10 * MM + .5)
+40810 IF X1 <  > 0 OR Y1 <  > 0 THEN 49990
+40820 IF MZ%(MM,1) < IN * LP AND RA < 1.3 THEN 45000
+40830 IF MZ%(MM,1) < IN * LP THEN MZ%(MM,1) = MZ%(MM,1) + MM + IN
+44990 GOTO 49990
+45000 IF MM = 2 OR MM = 7 THEN 46000
+45090 PRINT "YOU ARE BEING ATTACKED": PRINT "BY A ";M$(MM)
+45100 IF  RND (1) * 20 -  SGN (PW(3)) - C(3) + MM + IN < 0 THEN  PRINT "MISSED": GOTO 45250
+45200 PRINT "HIT":C(0) = C(0) -  INT ( RND (1) * MM + IN)
+45250 IF PA = 1 THEN  PRINT "-CR- TO CONT. ";: INPUT Q$
+45300 GOTO 49990
+46000 IF  RND (1) < .5 THEN 45090
+46100 IF MM = 7 THEN PW(0) =  INT (PW(0) / 2): PRINT "A GREMLIN STOLE SOME FOOD": GOTO 45250
+46200 ZZ =  INT ( RND (1) * 6): IF PW(ZZ) < 1 THEN 46200
+46300 PRINT "A THIEF STOLE A ";W$(ZZ):PW(ZZ) = PW(ZZ) - 1: GOTO 45250
+49990 NEXT : RETURN 
+
+56000 POKE 33,40: PRINT : PRINT : PRINT "        WE MOURN THE PASSING OF     "
+56005 IF  LEN (PN$) > 22 THEN PN$ = ""
+56010 IF PN$ = "" THEN PN$ = "THE PEASANT"
+56020 PN$ = PN$ + " AND HIS COMPUTER"
+56030 HTAB (20 -  INT ( LEN (PN$) / 2)): PRINT PN$
+56035 PRINT "  TO INVOKE A MIRACLE OF RESSURECTION"
+56040 PRINT "             <HIT ESC KEY>";
+56050 IF  PEEK ( - 16384) = 155 THEN GOTO 1
+56060 GOTO 56050
+
+57000 HOME : TEXT : HOME 
+57001 CALL 62450
+57010 IF PN$ <  > "" THEN 57500
+57020 PRINT : PRINT : PRINT "     WELCOME PEASANT INTO THE HALLS OF": PRINT "THE MIGHTY LORD BRITISH. HEREIN THOU MAYCHOOSE TO DARE BATTLE WITH THE EVIL": PRINT "CREATURES OF THE DEPTHS, FOR GREAT": PRINT "REWARD!"
+57030 PRINT : PRINT "WHAT IS THY NAME PEASANT ";: INPUT PN$
+57040 PRINT "DOEST THOU WISH FOR GRAND ADVENTURE ? ";: GET Q$: IF Q$ <  > "Y" THEN  PRINT : PRINT "THEN LEAVE AND BEGONE!":PN$ = "": PRINT : PRINT "         PRESS -SPACE- TO CONT.";: GET Q$: GOTO 10900
+57045 PRINT 
+57050 PRINT : PRINT "GOOD! THOU SHALT TRY TO BECOME A ": PRINT "KNIGHT!!!": PRINT : PRINT "THY FIRST TASK IS TO GO INTO THE": PRINT "DUNGEONS AND TO RETURN ONLY AFTER": PRINT "KILLING A(N) ";:TASK =  INT (C(4) / 3): PRINT M$(TASK)
+57060 PRINT : PRINT "     GO NOW UPON THIS QUEST, AND MAY": PRINT "LADY LUCK BE FAIR UNTO YOU.....": PRINT ".....ALSO I, BRITISH, HAVE INCREASED": PRINT "EACH OF THY ATTRIBUTES BY ONE!"
+57070 PRINT : PRINT "         PRESS -SPACE- TO CONT.";: GET Q$: FOR X = 0 TO 5:C(X) = C(X) + 1: NEXT : HOME : GOTO 10900
+57500 IF TASK > 0 THEN  PRINT : PRINT : PRINT PN$;" WHY HAST THOU RETURNED?": PRINT "THOU MUST KILL A(N) ";M$(TASK): PRINT "GO NOW AND COMPLETE THY QUEST!": PRINT : PRINT "         PRESS -SPACE- TO CONT.";: GET Q$: HOME : GOTO 10900
+57510 PRINT : PRINT : PRINT : PRINT "AAHH!!.....";PN$: PRINT : PRINT "THOU HAST ACOMPLISHED THY QUEST!": IF  ABS (TASK) = 10 THEN 57900
+57520 PRINT "UNFORTUNATELY, THIS IS NOT ENOUGH TO": PRINT "BECOME A KNIGHT.":TASK =  ABS (TASK) + 1: PRINT : PRINT "NOW THOU MUST KILL A(N) ";M$(TASK)
+57530 GOTO 57060
+57900 TEXT : HOME : PRINT : PRINT : PRINT :PN$ = "LORD " + PN$: PRINT " ";PN$;","
+57910 PRINT "       THOU HAST PROVED THYSELF WORTHY": PRINT "OF KNIGHTHOOD, CONTINUE PLAY IF THOU": PRINT "DOTH WISH, BUT THOU HAST ACOMPLISHED": PRINT "THE MAIN OBJECTIVE OF THIS GAME..."
+57920 IF LP = 10 THEN 57950
+57930 PRINT : PRINT "   NOW MAYBE THOU ART FOOLHEARTY": PRINT "ENOUGH TO TRY DIFFICULTY LEVEL ";LP + 1
+57940 GOTO 57070
+57950 PRINT : PRINT "...CALL CALIFORNIA PACIFIC COMPUTER": PRINT "AT (415)-569-9126 TO REPORT THIS": PRINT "AMAZING FEAT!"
+57990 GOTO 57070
  
 60000 REM CHARACTER CREATION
 60001 PRINT CHR$($11)CHR$($11)CHR$($11)CHR$($11)CHR$($11);
