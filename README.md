@@ -6,11 +6,11 @@ N = Move North / Foward
 W = Move West / Turn Left
 E = Move East / Turn Right
 S = Move South / Turn Around
-D = STATISTICS.
+X = Statistics
 A = NA / Attack
 - = Pass / Pass
 P = Toggle Pause
-X = Climb Ladder / Enter Town/ Enter Castle / Climb Down
+D = Climb Ladder / Enter Town/ Enter Castle / Climb Down
 
 Source Material
 https://nanochess.org/akalabeth.html
