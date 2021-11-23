@@ -11,6 +11,7 @@ A = NA / Attack
 - = Pass / Pass
 P = Toggle Pause
 D = Climb Ladder / Enter Town/ Enter Castle / Climb Down
+Q = Quit
 
 Source Material
 https://nanochess.org/akalabeth.html
